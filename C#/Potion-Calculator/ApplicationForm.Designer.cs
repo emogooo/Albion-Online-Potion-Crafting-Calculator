@@ -1,0 +1,359 @@
+﻿namespace Potion_Calculator
+{
+    partial class ApplicationForm
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationForm));
+            this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.btOther = new System.Windows.Forms.Button();
+            this.panelProductMaterialsSubmenu = new System.Windows.Forms.Panel();
+            this.btProductionMaterialsPrices = new System.Windows.Forms.Button();
+            this.btProductionMaterials = new System.Windows.Forms.Button();
+            this.panelProductSubmenu = new System.Windows.Forms.Panel();
+            this.btProductDailySalesAmount = new System.Windows.Forms.Button();
+            this.btProductFocuses = new System.Windows.Forms.Button();
+            this.btProductPrices = new System.Windows.Forms.Button();
+            this.btProduct = new System.Windows.Forms.Button();
+            this.btCalculate = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBoxName = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.panelChildForm = new System.Windows.Forms.Panel();
+            this.panelSideMenu.SuspendLayout();
+            this.panelProductMaterialsSubmenu.SuspendLayout();
+            this.panelProductSubmenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelSideMenu
+            // 
+            this.panelSideMenu.AutoScroll = true;
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.Controls.Add(this.btOther);
+            this.panelSideMenu.Controls.Add(this.panelProductMaterialsSubmenu);
+            this.panelSideMenu.Controls.Add(this.btProductionMaterials);
+            this.panelSideMenu.Controls.Add(this.panelProductSubmenu);
+            this.panelSideMenu.Controls.Add(this.btProduct);
+            this.panelSideMenu.Controls.Add(this.btCalculate);
+            this.panelSideMenu.Controls.Add(this.panelLogo);
+            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSideMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Name = "panelSideMenu";
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 567);
+            this.panelSideMenu.TabIndex = 2;
+            // 
+            // btOther
+            // 
+            this.btOther.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btOther.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btOther.FlatAppearance.BorderSize = 0;
+            this.btOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btOther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btOther.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btOther.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btOther.Image = global::Potion_Calculator.Properties.Resources.setting;
+            this.btOther.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btOther.Location = new System.Drawing.Point(0, 446);
+            this.btOther.Name = "btOther";
+            this.btOther.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btOther.Size = new System.Drawing.Size(200, 40);
+            this.btOther.TabIndex = 6;
+            this.btOther.Text = "Diğer";
+            this.btOther.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btOther.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btOther.UseVisualStyleBackColor = false;
+            this.btOther.Click += new System.EventHandler(this.btOther_Click);
+            // 
+            // panelProductMaterialsSubmenu
+            // 
+            this.panelProductMaterialsSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelProductMaterialsSubmenu.Controls.Add(this.btProductionMaterialsPrices);
+            this.panelProductMaterialsSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProductMaterialsSubmenu.Location = new System.Drawing.Point(0, 411);
+            this.panelProductMaterialsSubmenu.Name = "panelProductMaterialsSubmenu";
+            this.panelProductMaterialsSubmenu.Size = new System.Drawing.Size(200, 35);
+            this.panelProductMaterialsSubmenu.TabIndex = 5;
+            // 
+            // btProductionMaterialsPrices
+            // 
+            this.btProductionMaterialsPrices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProductionMaterialsPrices.FlatAppearance.BorderSize = 0;
+            this.btProductionMaterialsPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProductionMaterialsPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductionMaterialsPrices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProductionMaterialsPrices.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProductionMaterialsPrices.ForeColor = System.Drawing.Color.LightGray;
+            this.btProductionMaterialsPrices.Image = global::Potion_Calculator.Properties.Resources.coin;
+            this.btProductionMaterialsPrices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductionMaterialsPrices.Location = new System.Drawing.Point(0, 0);
+            this.btProductionMaterialsPrices.Name = "btProductionMaterialsPrices";
+            this.btProductionMaterialsPrices.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btProductionMaterialsPrices.Size = new System.Drawing.Size(200, 35);
+            this.btProductionMaterialsPrices.TabIndex = 0;
+            this.btProductionMaterialsPrices.Text = "Fiyat";
+            this.btProductionMaterialsPrices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductionMaterialsPrices.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProductionMaterialsPrices.UseVisualStyleBackColor = true;
+            this.btProductionMaterialsPrices.Click += new System.EventHandler(this.btProductionMaterialsPrices_Click);
+            // 
+            // btProductionMaterials
+            // 
+            this.btProductionMaterials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btProductionMaterials.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProductionMaterials.FlatAppearance.BorderSize = 0;
+            this.btProductionMaterials.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProductionMaterials.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductionMaterials.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProductionMaterials.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProductionMaterials.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btProductionMaterials.Image = global::Potion_Calculator.Properties.Resources.mint;
+            this.btProductionMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductionMaterials.Location = new System.Drawing.Point(0, 371);
+            this.btProductionMaterials.Name = "btProductionMaterials";
+            this.btProductionMaterials.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btProductionMaterials.Size = new System.Drawing.Size(200, 40);
+            this.btProductionMaterials.TabIndex = 4;
+            this.btProductionMaterials.Text = "Üretim Malzemesi";
+            this.btProductionMaterials.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductionMaterials.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProductionMaterials.UseVisualStyleBackColor = false;
+            this.btProductionMaterials.Click += new System.EventHandler(this.btProductionMaterials_Click);
+            // 
+            // panelProductSubmenu
+            // 
+            this.panelProductSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelProductSubmenu.Controls.Add(this.btProductDailySalesAmount);
+            this.panelProductSubmenu.Controls.Add(this.btProductFocuses);
+            this.panelProductSubmenu.Controls.Add(this.btProductPrices);
+            this.panelProductSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProductSubmenu.Location = new System.Drawing.Point(0, 266);
+            this.panelProductSubmenu.Name = "panelProductSubmenu";
+            this.panelProductSubmenu.Size = new System.Drawing.Size(200, 105);
+            this.panelProductSubmenu.TabIndex = 3;
+            // 
+            // btProductDailySalesAmount
+            // 
+            this.btProductDailySalesAmount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProductDailySalesAmount.FlatAppearance.BorderSize = 0;
+            this.btProductDailySalesAmount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProductDailySalesAmount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductDailySalesAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProductDailySalesAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProductDailySalesAmount.ForeColor = System.Drawing.Color.LightGray;
+            this.btProductDailySalesAmount.Image = global::Potion_Calculator.Properties.Resources.amount;
+            this.btProductDailySalesAmount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductDailySalesAmount.Location = new System.Drawing.Point(0, 70);
+            this.btProductDailySalesAmount.Name = "btProductDailySalesAmount";
+            this.btProductDailySalesAmount.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btProductDailySalesAmount.Size = new System.Drawing.Size(200, 35);
+            this.btProductDailySalesAmount.TabIndex = 2;
+            this.btProductDailySalesAmount.Text = "Günlük Satış Miktarı";
+            this.btProductDailySalesAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductDailySalesAmount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProductDailySalesAmount.UseVisualStyleBackColor = true;
+            this.btProductDailySalesAmount.Click += new System.EventHandler(this.btProductDailySalesAmount_Click);
+            // 
+            // btProductFocuses
+            // 
+            this.btProductFocuses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProductFocuses.FlatAppearance.BorderSize = 0;
+            this.btProductFocuses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProductFocuses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductFocuses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProductFocuses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProductFocuses.ForeColor = System.Drawing.Color.LightGray;
+            this.btProductFocuses.Image = global::Potion_Calculator.Properties.Resources.focus;
+            this.btProductFocuses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductFocuses.Location = new System.Drawing.Point(0, 35);
+            this.btProductFocuses.Name = "btProductFocuses";
+            this.btProductFocuses.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btProductFocuses.Size = new System.Drawing.Size(200, 35);
+            this.btProductFocuses.TabIndex = 1;
+            this.btProductFocuses.Text = "Focus";
+            this.btProductFocuses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductFocuses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProductFocuses.UseVisualStyleBackColor = true;
+            this.btProductFocuses.Click += new System.EventHandler(this.btProductFocuses_Click);
+            // 
+            // btProductPrices
+            // 
+            this.btProductPrices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProductPrices.FlatAppearance.BorderSize = 0;
+            this.btProductPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProductPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductPrices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProductPrices.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProductPrices.ForeColor = System.Drawing.Color.LightGray;
+            this.btProductPrices.Image = global::Potion_Calculator.Properties.Resources.coin;
+            this.btProductPrices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductPrices.Location = new System.Drawing.Point(0, 0);
+            this.btProductPrices.Name = "btProductPrices";
+            this.btProductPrices.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btProductPrices.Size = new System.Drawing.Size(200, 35);
+            this.btProductPrices.TabIndex = 0;
+            this.btProductPrices.Text = "Fiyat";
+            this.btProductPrices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProductPrices.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProductPrices.UseVisualStyleBackColor = true;
+            this.btProductPrices.Click += new System.EventHandler(this.btProductPrices_Click);
+            // 
+            // btProduct
+            // 
+            this.btProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btProduct.FlatAppearance.BorderSize = 0;
+            this.btProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btProduct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btProduct.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btProduct.Image = global::Potion_Calculator.Properties.Resources.pot4;
+            this.btProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProduct.Location = new System.Drawing.Point(0, 226);
+            this.btProduct.Name = "btProduct";
+            this.btProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btProduct.Size = new System.Drawing.Size(200, 40);
+            this.btProduct.TabIndex = 2;
+            this.btProduct.Text = "Ürün";
+            this.btProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btProduct.UseVisualStyleBackColor = true;
+            this.btProduct.Click += new System.EventHandler(this.btProduct_Click);
+            // 
+            // btCalculate
+            // 
+            this.btCalculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btCalculate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btCalculate.FlatAppearance.BorderSize = 0;
+            this.btCalculate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btCalculate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCalculate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btCalculate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btCalculate.Image = global::Potion_Calculator.Properties.Resources.calculate;
+            this.btCalculate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCalculate.Location = new System.Drawing.Point(0, 186);
+            this.btCalculate.Name = "btCalculate";
+            this.btCalculate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btCalculate.Size = new System.Drawing.Size(200, 40);
+            this.btCalculate.TabIndex = 1;
+            this.btCalculate.Text = "Hesapla";
+            this.btCalculate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCalculate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCalculate.UseVisualStyleBackColor = false;
+            this.btCalculate.Click += new System.EventHandler(this.btCalculate_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.Transparent;
+            this.panelLogo.Controls.Add(this.pictureBoxName);
+            this.panelLogo.Controls.Add(this.pictureBoxLogo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 186);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // pictureBoxName
+            // 
+            this.pictureBoxName.BackgroundImage = global::Potion_Calculator.Properties.Resources.appname;
+            this.pictureBoxName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxName.Location = new System.Drawing.Point(63, 0);
+            this.pictureBoxName.Name = "pictureBoxName";
+            this.pictureBoxName.Size = new System.Drawing.Size(117, 186);
+            this.pictureBoxName.TabIndex = 1;
+            this.pictureBoxName.TabStop = false;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::Potion_Calculator.Properties.Resources.pot2;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(63, 186);
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(200, 0);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(553, 567);
+            this.panelChildForm.TabIndex = 3;
+            // 
+            // ApplicationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlText;
+            this.ClientSize = new System.Drawing.Size(753, 567);
+            this.Controls.Add(this.panelChildForm);
+            this.Controls.Add(this.panelSideMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(650, 450);
+            this.Name = "ApplicationForm";
+            this.panelSideMenu.ResumeLayout(false);
+            this.panelProductMaterialsSubmenu.ResumeLayout(false);
+            this.panelProductSubmenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private Button button1;
+        private Label label1;
+        private Panel panelSideMenu;
+        private Button btCalculate;
+        private Panel panelLogo;
+        private Button btProductionMaterials;
+        private Panel panelProductSubmenu;
+        private Button btProductDailySalesAmount;
+        private Button btProductFocuses;
+        private Button btProductPrices;
+        private Button btProduct;
+        private Button btOther;
+        private Panel panelProductMaterialsSubmenu;
+        private Button btProductionMaterialsPrices;
+        private PictureBox pictureBoxLogo;
+        private PictureBox pictureBoxName;
+        private Panel panelChildForm;
+    }
+}

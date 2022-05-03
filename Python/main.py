@@ -1,10 +1,8 @@
 from decimal import DivisionByZero
-from pstats import SortKey
 from tkinter import *
 from tkinter import messagebox
 import os
 import json
-from tkinter import font
 
 class App():
     def __init__(self) -> None:

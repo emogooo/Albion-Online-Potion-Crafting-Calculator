@@ -44,12 +44,16 @@
             this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.pictureBoxTitleBarLogo = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
             this.panelProductMaterialsSubmenu.SuspendLayout();
             this.panelProductSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitleBarLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -65,9 +69,9 @@
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 36);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(200, 567);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 531);
             this.panelSideMenu.TabIndex = 2;
             // 
             // btOther
@@ -310,10 +314,37 @@
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(200, 0);
+            this.panelChildForm.Location = new System.Drawing.Point(200, 36);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(553, 567);
+            this.panelChildForm.Size = new System.Drawing.Size(553, 531);
             this.panelChildForm.TabIndex = 3;
+            // 
+            // panelTitleBar
+            // 
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelTitleBar.Controls.Add(this.pictureBoxTitleBarLogo);
+            this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitleBar.ForeColor = System.Drawing.Color.Coral;
+            this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.panelTitleBar.Name = "panelTitleBar";
+            this.panelTitleBar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panelTitleBar.Size = new System.Drawing.Size(753, 36);
+            this.panelTitleBar.TabIndex = 4;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            this.panelTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseMove);
+            this.panelTitleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseUp);
+            // 
+            // pictureBoxTitleBarLogo
+            // 
+            this.pictureBoxTitleBarLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBoxTitleBarLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxTitleBarLogo.Image = global::Potion_Calculator.Properties.Resources.pot1;
+            this.pictureBoxTitleBarLogo.Location = new System.Drawing.Point(0, 10);
+            this.pictureBoxTitleBarLogo.Name = "pictureBoxTitleBarLogo";
+            this.pictureBoxTitleBarLogo.Size = new System.Drawing.Size(63, 26);
+            this.pictureBoxTitleBarLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTitleBarLogo.TabIndex = 0;
+            this.pictureBoxTitleBarLogo.TabStop = false;
             // 
             // ApplicationForm
             // 
@@ -323,23 +354,27 @@
             this.ClientSize = new System.Drawing.Size(753, 567);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
+            this.Controls.Add(this.panelTitleBar);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(650, 450);
             this.Name = "ApplicationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelSideMenu.ResumeLayout(false);
             this.panelProductMaterialsSubmenu.ResumeLayout(false);
             this.panelProductSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.panelTitleBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitleBarLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button button1;
-        private Label label1;
         private Panel panelSideMenu;
         private Button btCalculate;
         private Panel panelLogo;
@@ -355,5 +390,7 @@
         private PictureBox pictureBoxLogo;
         private PictureBox pictureBoxName;
         private Panel panelChildForm;
+        private Panel panelTitleBar;
+        private PictureBox pictureBoxTitleBarLogo;
     }
 }

@@ -2,6 +2,9 @@ namespace Potion_Calculator
 {
     public partial class ApplicationForm : Form
     {
+        private bool mouseDown;
+        private Point offSet;
+
         public ApplicationForm()
         {
             string dataFolderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\AlbionOnlinePCC";
@@ -17,11 +20,13 @@ namespace Potion_Calculator
             InitializeComponent();
             customizeDesign();
         }
-
+      
+        #region Hayýrlýsý
         private void customizeDesign()
         {
             panelProductMaterialsSubmenu.Visible = false;
             panelProductSubmenu.Visible = false;
+            
         }
 
         private void hideSubMenu()
@@ -76,7 +81,7 @@ namespace Potion_Calculator
 
         private void btProductionMaterialsPrices_Click(object sender, EventArgs e)
         {
-            ////
+            
         }
 
         private void btOther_Click(object sender, EventArgs e)
@@ -88,5 +93,29 @@ namespace Potion_Calculator
         {
             hideSubMenu();
         }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            //offSet.X = e.X;
+            //offSet.Y = e.Y;
+            //mouseDown = true;
+
+        }
+
+        private void panelTitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            //if (mouseDown)
+            //{
+            //   Point currentScreenPos = PointToScreen(e.Location);
+            //   Location = new Point(currentScreenPos.X - offSet.X, currentScreenPos.Y - offSet.Y);
+            //}
+        }
+
+        private void panelTitleBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            //mouseDown = false;
+        }
+        #endregion
+
     }
 }

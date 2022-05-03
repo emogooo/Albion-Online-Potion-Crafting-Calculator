@@ -76,7 +76,7 @@ namespace Potion_Calculator
 
         private void btProductionMaterialsPrices_Click(object sender, EventArgs e)
         {
-
+            ////
         }
 
         private void btOther_Click(object sender, EventArgs e)

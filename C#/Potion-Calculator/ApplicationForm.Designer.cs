@@ -41,9 +41,10 @@
             this.btProduct = new System.Windows.Forms.Button();
             this.btCalculate = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.pictureBoxName = new System.Windows.Forms.PictureBox();
+            this.pictureBoxChildForm = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btMinimize = new System.Windows.Forms.Button();
             this.btFullScreen = new System.Windows.Forms.Button();
@@ -53,8 +54,10 @@
             this.panelProductMaterialsSubmenu.SuspendLayout();
             this.panelProductSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.panelChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChildForm)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitleBarLogo)).BeginInit();
             this.SuspendLayout();
@@ -82,8 +85,8 @@
             this.btOther.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btOther.Dock = System.Windows.Forms.DockStyle.Top;
             this.btOther.FlatAppearance.BorderSize = 0;
-            this.btOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btOther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btOther.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btOther.ForeColor = System.Drawing.Color.Gainsboro;
@@ -114,8 +117,8 @@
             // 
             this.btProductionMaterialsPrices.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProductionMaterialsPrices.FlatAppearance.BorderSize = 0;
-            this.btProductionMaterialsPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProductionMaterialsPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductionMaterialsPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btProductionMaterialsPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.btProductionMaterialsPrices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProductionMaterialsPrices.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProductionMaterialsPrices.ForeColor = System.Drawing.Color.LightGray;
@@ -137,8 +140,8 @@
             this.btProductionMaterials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btProductionMaterials.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProductionMaterials.FlatAppearance.BorderSize = 0;
-            this.btProductionMaterials.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProductionMaterials.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductionMaterials.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btProductionMaterials.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btProductionMaterials.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProductionMaterials.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProductionMaterials.ForeColor = System.Drawing.Color.Gainsboro;
@@ -171,8 +174,8 @@
             // 
             this.btProductDailySalesAmount.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProductDailySalesAmount.FlatAppearance.BorderSize = 0;
-            this.btProductDailySalesAmount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProductDailySalesAmount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductDailySalesAmount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btProductDailySalesAmount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.btProductDailySalesAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProductDailySalesAmount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProductDailySalesAmount.ForeColor = System.Drawing.Color.LightGray;
@@ -193,8 +196,8 @@
             // 
             this.btProductFocuses.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProductFocuses.FlatAppearance.BorderSize = 0;
-            this.btProductFocuses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProductFocuses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductFocuses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btProductFocuses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.btProductFocuses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProductFocuses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProductFocuses.ForeColor = System.Drawing.Color.LightGray;
@@ -215,8 +218,8 @@
             // 
             this.btProductPrices.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProductPrices.FlatAppearance.BorderSize = 0;
-            this.btProductPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProductPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProductPrices.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btProductPrices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.btProductPrices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProductPrices.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProductPrices.ForeColor = System.Drawing.Color.LightGray;
@@ -239,8 +242,8 @@
             this.btProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btProduct.FlatAppearance.BorderSize = 0;
-            this.btProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProduct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btProduct.ForeColor = System.Drawing.Color.Gainsboro;
@@ -262,8 +265,8 @@
             this.btCalculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btCalculate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btCalculate.FlatAppearance.BorderSize = 0;
-            this.btCalculate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btCalculate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btCalculate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btCalculate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCalculate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btCalculate.ForeColor = System.Drawing.Color.Gainsboro;
@@ -283,7 +286,6 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.Transparent;
-            this.panelLogo.Controls.Add(this.pictureBoxName);
             this.panelLogo.Controls.Add(this.pictureBoxLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -291,36 +293,50 @@
             this.panelLogo.Size = new System.Drawing.Size(200, 186);
             this.panelLogo.TabIndex = 0;
             // 
-            // pictureBoxName
-            // 
-            this.pictureBoxName.BackgroundImage = global::Potion_Calculator.Properties.Resources.appname;
-            this.pictureBoxName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxName.Location = new System.Drawing.Point(63, 0);
-            this.pictureBoxName.Name = "pictureBoxName";
-            this.pictureBoxName.Size = new System.Drawing.Size(117, 186);
-            this.pictureBoxName.TabIndex = 1;
-            this.pictureBoxName.TabStop = false;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackgroundImage = global::Potion_Calculator.Properties.Resources.pot2;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(63, 186);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(200, 186);
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelChildForm.Controls.Add(this.pictureBoxName);
+            this.panelChildForm.Controls.Add(this.pictureBoxChildForm);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(206, 42);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(438, 556);
             this.panelChildForm.TabIndex = 3;
+            // 
+            // pictureBoxName
+            // 
+            this.pictureBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxName.Image = global::Potion_Calculator.Properties.Resources.appname;
+            this.pictureBoxName.Location = new System.Drawing.Point(114, 256);
+            this.pictureBoxName.Name = "pictureBoxName";
+            this.pictureBoxName.Size = new System.Drawing.Size(185, 139);
+            this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxName.TabIndex = 1;
+            this.pictureBoxName.TabStop = false;
+            // 
+            // pictureBoxChildForm
+            // 
+            this.pictureBoxChildForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxChildForm.Image = global::Potion_Calculator.Properties.Resources.pot2;
+            this.pictureBoxChildForm.Location = new System.Drawing.Point(161, 162);
+            this.pictureBoxChildForm.Name = "pictureBoxChildForm";
+            this.pictureBoxChildForm.Size = new System.Drawing.Size(93, 88);
+            this.pictureBoxChildForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxChildForm.TabIndex = 0;
+            this.pictureBoxChildForm.TabStop = false;
             // 
             // panelTitleBar
             // 
@@ -347,7 +363,10 @@
             this.btMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btMinimize.FlatAppearance.BorderSize = 0;
+            this.btMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btMinimize.Location = new System.Drawing.Point(533, 5);
             this.btMinimize.Name = "btMinimize";
             this.btMinimize.Size = new System.Drawing.Size(35, 26);
@@ -361,7 +380,10 @@
             this.btFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btFullScreen.Dock = System.Windows.Forms.DockStyle.Right;
             this.btFullScreen.FlatAppearance.BorderSize = 0;
+            this.btFullScreen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btFullScreen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFullScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btFullScreen.Location = new System.Drawing.Point(568, 5);
             this.btFullScreen.Name = "btFullScreen";
             this.btFullScreen.Size = new System.Drawing.Size(35, 26);
@@ -375,7 +397,10 @@
             this.btClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btClose.FlatAppearance.BorderSize = 0;
+            this.btClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btClose.Location = new System.Drawing.Point(603, 5);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(35, 26);
@@ -415,8 +440,10 @@
             this.panelProductMaterialsSubmenu.ResumeLayout(false);
             this.panelProductSubmenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChildForm)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitleBarLogo)).EndInit();
             this.ResumeLayout(false);
@@ -438,12 +465,13 @@
         private Panel panelProductMaterialsSubmenu;
         private Button btProductionMaterialsPrices;
         private PictureBox pictureBoxLogo;
-        private PictureBox pictureBoxName;
         private Panel panelChildForm;
         private Panel panelTitleBar;
         private PictureBox pictureBoxTitleBarLogo;
         private Button btMinimize;
         private Button btFullScreen;
         private Button btClose;
+        private PictureBox pictureBoxChildForm;
+        private PictureBox pictureBoxName;
     }
 }

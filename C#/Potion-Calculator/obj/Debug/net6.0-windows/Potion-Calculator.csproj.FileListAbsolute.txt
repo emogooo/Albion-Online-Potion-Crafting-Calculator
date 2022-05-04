@@ -16,3 +16,9 @@ E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debu
 E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\ref\Potion-Calculator.dll
 E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ApplicationForm.resources
 E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.Properties.Resources.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.OtherSettingsForm.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductionMaterialPricesForm.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductDailySalesAmountForm.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductFocusesForm.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductPricesForm.resources
+E:\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ResultForm.resources

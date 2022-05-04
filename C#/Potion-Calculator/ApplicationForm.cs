@@ -5,6 +5,7 @@ namespace Potion_Calculator
         private bool mouseDown;
         private Point offSet;
         private double resizeCornerValue;
+        private Form activeForm;
 
         public ApplicationForm()
         {         
@@ -18,7 +19,25 @@ namespace Potion_Calculator
             panelProductSubmenu.Visible = false;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             resizeCornerValue = 0.03;
+            activeForm = null;
         }
+
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            activeForm = childForm;
+        }
+
         private void createLocalJSONDatabase() // AppData/Local konumunda, yoksa json dosyalarýný oluþturur.
         {
             string dataFolderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\AlbionOnlinePCC";
@@ -33,8 +52,85 @@ namespace Potion_Calculator
             }
         }
 
+        #region Menü Butonlarý
+
+        private void hideSubMenu()
+        {
+            if (panelProductMaterialsSubmenu.Visible)
+            {
+                panelProductMaterialsSubmenu.Visible = false;
+            }
+            if (panelProductSubmenu.Visible)
+            {
+                panelProductSubmenu.Visible = false;
+            }
+        }
+
+        private void showSubMenu(Panel subMenu)
+        {
+            if (!subMenu.Visible)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+
+        private void btProduct_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelProductSubmenu);
+        }
+
+        private void btProductPrices_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProductPricesForm());
+        }
+
+        private void btProductFocuses_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProductFocusesForm());
+        }
+
+        private void btProductDailySalesAmount_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProductDailySalesAmountForm());
+        }
+
+        private void btProductionMaterials_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelProductMaterialsSubmenu);
+        }
+
+        private void btProductionMaterialsPrices_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProductionMaterialPricesForm());
+        }
+
+        private void btOther_Click(object sender, EventArgs e)
+        {
+            openChildForm(new OtherSettingsForm());
+            hideSubMenu();
+        }
+
+        private void btCalculate_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ResultForm());
+            hideSubMenu();
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            panelChildForm.Controls.Remove(activeForm);
+            activeForm = null;
+        }
+
+        #endregion
+
         #region Borderless Form Ekranýný Sürükleme ve Yeniden Boyutlandýrma
-        
+
         protected override void WndProc(ref Message m) // Borderless Form ekranýnda yeniden boyutlandýrma yapar
         {
             if (m.Msg == 0x84)
@@ -116,76 +212,6 @@ namespace Potion_Calculator
             mouseDown = false;
         }
         #endregion
-
-        #endregion
-
-        #region Menü Butonlarý
-
-        private void hideSubMenu()
-        {
-            if (panelProductMaterialsSubmenu.Visible)
-            {
-                panelProductMaterialsSubmenu.Visible = false;
-            }
-            if (panelProductSubmenu.Visible)
-            {
-                panelProductSubmenu.Visible = false;
-            }
-        }
-
-        private void showSubMenu(Panel subMenu)
-        {
-            if (!subMenu.Visible)
-            {
-                hideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-            {
-                subMenu.Visible = false;
-            }
-        }
-
-        private void btProduct_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelProductSubmenu);
-        }
-
-        private void btProductPrices_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btProductFocuses_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btProductDailySalesAmount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btProductionMaterials_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelProductMaterialsSubmenu);
-        }
-
-        private void btProductionMaterialsPrices_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btOther_Click(object sender, EventArgs e)
-        {
-            hideSubMenu();
-        }
-
-        private void btCalculate_Click(object sender, EventArgs e)
-        {
-            hideSubMenu();
-        }
-
 
         #endregion
 

@@ -211,6 +211,19 @@ namespace Potion_Calculator
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void panelTitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (FormWindowState.Maximized == this.WindowState)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+        }
         #endregion
+
     }
 }

@@ -45,6 +45,9 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.btMinimize = new System.Windows.Forms.Button();
+            this.btFullScreen = new System.Windows.Forms.Button();
+            this.btClose = new System.Windows.Forms.Button();
             this.pictureBoxTitleBarLogo = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
             this.panelProductMaterialsSubmenu.SuspendLayout();
@@ -69,9 +72,9 @@
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 36);
+            this.panelSideMenu.Location = new System.Drawing.Point(6, 42);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(200, 531);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 556);
             this.panelSideMenu.TabIndex = 2;
             // 
             // btOther
@@ -314,32 +317,78 @@
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(200, 36);
+            this.panelChildForm.Location = new System.Drawing.Point(206, 42);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(553, 531);
+            this.panelChildForm.Size = new System.Drawing.Size(438, 556);
             this.panelChildForm.TabIndex = 3;
             // 
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelTitleBar.Controls.Add(this.btMinimize);
+            this.panelTitleBar.Controls.Add(this.btFullScreen);
+            this.panelTitleBar.Controls.Add(this.btClose);
             this.panelTitleBar.Controls.Add(this.pictureBoxTitleBarLogo);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.ForeColor = System.Drawing.Color.Coral;
-            this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(6, 6);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panelTitleBar.Size = new System.Drawing.Size(753, 36);
+            this.panelTitleBar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.panelTitleBar.Size = new System.Drawing.Size(638, 36);
             this.panelTitleBar.TabIndex = 4;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             this.panelTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseMove);
             this.panelTitleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseUp);
+            // 
+            // btMinimize
+            // 
+            this.btMinimize.BackgroundImage = global::Potion_Calculator.Properties.Resources.minimize;
+            this.btMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btMinimize.FlatAppearance.BorderSize = 0;
+            this.btMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMinimize.Location = new System.Drawing.Point(502, 5);
+            this.btMinimize.Name = "btMinimize";
+            this.btMinimize.Size = new System.Drawing.Size(45, 26);
+            this.btMinimize.TabIndex = 3;
+            this.btMinimize.UseVisualStyleBackColor = true;
+            this.btMinimize.Click += new System.EventHandler(this.btMinimize_Click);
+            // 
+            // btFullScreen
+            // 
+            this.btFullScreen.BackgroundImage = global::Potion_Calculator.Properties.Resources.full_screen;
+            this.btFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btFullScreen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btFullScreen.FlatAppearance.BorderSize = 0;
+            this.btFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFullScreen.Location = new System.Drawing.Point(547, 5);
+            this.btFullScreen.Name = "btFullScreen";
+            this.btFullScreen.Size = new System.Drawing.Size(44, 26);
+            this.btFullScreen.TabIndex = 2;
+            this.btFullScreen.UseVisualStyleBackColor = true;
+            this.btFullScreen.Click += new System.EventHandler(this.btFullScreen_Click);
+            // 
+            // btClose
+            // 
+            this.btClose.BackgroundImage = global::Potion_Calculator.Properties.Resources.close;
+            this.btClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btClose.FlatAppearance.BorderSize = 0;
+            this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btClose.Location = new System.Drawing.Point(591, 5);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(47, 26);
+            this.btClose.TabIndex = 1;
+            this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // pictureBoxTitleBarLogo
             // 
             this.pictureBoxTitleBarLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxTitleBarLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxTitleBarLogo.Image = global::Potion_Calculator.Properties.Resources.pot1;
-            this.pictureBoxTitleBarLogo.Location = new System.Drawing.Point(0, 10);
+            this.pictureBoxTitleBarLogo.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxTitleBarLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxTitleBarLogo.Name = "pictureBoxTitleBarLogo";
             this.pictureBoxTitleBarLogo.Size = new System.Drawing.Size(63, 26);
             this.pictureBoxTitleBarLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -348,10 +397,9 @@
             // 
             // ApplicationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(753, 567);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.ClientSize = new System.Drawing.Size(650, 604);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.panelTitleBar);
@@ -360,6 +408,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(650, 450);
             this.Name = "ApplicationForm";
+            this.Padding = new System.Windows.Forms.Padding(6);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelSideMenu.ResumeLayout(false);
             this.panelProductMaterialsSubmenu.ResumeLayout(false);
@@ -392,5 +441,8 @@
         private Panel panelChildForm;
         private Panel panelTitleBar;
         private PictureBox pictureBoxTitleBarLogo;
+        private Button btMinimize;
+        private Button btFullScreen;
+        private Button btClose;
     }
 }

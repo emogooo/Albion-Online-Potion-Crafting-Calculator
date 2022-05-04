@@ -344,13 +344,13 @@
             // btMinimize
             // 
             this.btMinimize.BackgroundImage = global::Potion_Calculator.Properties.Resources.minimize;
-            this.btMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btMinimize.FlatAppearance.BorderSize = 0;
             this.btMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMinimize.Location = new System.Drawing.Point(502, 5);
+            this.btMinimize.Location = new System.Drawing.Point(533, 5);
             this.btMinimize.Name = "btMinimize";
-            this.btMinimize.Size = new System.Drawing.Size(45, 26);
+            this.btMinimize.Size = new System.Drawing.Size(35, 26);
             this.btMinimize.TabIndex = 3;
             this.btMinimize.UseVisualStyleBackColor = true;
             this.btMinimize.Click += new System.EventHandler(this.btMinimize_Click);
@@ -358,13 +358,13 @@
             // btFullScreen
             // 
             this.btFullScreen.BackgroundImage = global::Potion_Calculator.Properties.Resources.full_screen;
-            this.btFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btFullScreen.Dock = System.Windows.Forms.DockStyle.Right;
             this.btFullScreen.FlatAppearance.BorderSize = 0;
             this.btFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFullScreen.Location = new System.Drawing.Point(547, 5);
+            this.btFullScreen.Location = new System.Drawing.Point(568, 5);
             this.btFullScreen.Name = "btFullScreen";
-            this.btFullScreen.Size = new System.Drawing.Size(44, 26);
+            this.btFullScreen.Size = new System.Drawing.Size(35, 26);
             this.btFullScreen.TabIndex = 2;
             this.btFullScreen.UseVisualStyleBackColor = true;
             this.btFullScreen.Click += new System.EventHandler(this.btFullScreen_Click);
@@ -372,13 +372,13 @@
             // btClose
             // 
             this.btClose.BackgroundImage = global::Potion_Calculator.Properties.Resources.close;
-            this.btClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btClose.FlatAppearance.BorderSize = 0;
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btClose.Location = new System.Drawing.Point(591, 5);
+            this.btClose.Location = new System.Drawing.Point(603, 5);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(47, 26);
+            this.btClose.Size = new System.Drawing.Size(35, 26);
             this.btClose.TabIndex = 1;
             this.btClose.UseVisualStyleBackColor = true;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);

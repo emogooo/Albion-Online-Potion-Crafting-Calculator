@@ -11,7 +11,7 @@ namespace Potion_Calculator
         {         
             InitializeComponent();
             customizeDesign();
-            createLocalJSONDatabase();
+            JSONOperations.createLocalJSONDatabase();
         }
         private void customizeDesign()
         {
@@ -36,20 +36,6 @@ namespace Potion_Calculator
             childForm.BringToFront();
             childForm.Show();
             activeForm = childForm;
-        }
-
-        private void createLocalJSONDatabase() // AppData/Local konumunda, yoksa json dosyalarýný oluþturur.
-        {
-            string dataFolderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\AlbionOnlinePCC";
-            System.IO.Directory.CreateDirectory(dataFolderPath);
-            if (!File.Exists(dataFolderPath + "\\production-materials.json"))
-            {
-                using (File.Create(dataFolderPath + "\\production-materials.json")) ;
-            }
-            if (!File.Exists(dataFolderPath + "\\products.json"))
-            {
-                using (File.Create(dataFolderPath + "\\products.json")) ;
-            }
         }
 
         #region Menü Butonlarý
@@ -123,10 +109,48 @@ namespace Potion_Calculator
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
-            panelChildForm.Controls.Remove(activeForm);
-            activeForm = null;
-        }
+            if (activeForm != null)
+            {
+                if (activeForm.Name == "OtherSettingsForm")
+                {
+                    OtherSettingsForm f = (OtherSettingsForm)Application.OpenForms["OtherSettingsForm"];
+                    f.Close();
+                }
 
+                else if (activeForm.Name == "ProductionMaterialPricesForm")
+                {
+                    ProductionMaterialPricesForm f = (ProductionMaterialPricesForm)Application.OpenForms["ProductionMaterialPricesForm"];
+                    f.Close();
+                }
+
+                else if (activeForm.Name == "ProductDailySalesAmountForm")
+                {
+                    ProductDailySalesAmountForm f = (ProductDailySalesAmountForm)Application.OpenForms["ProductDailySalesAmountForm"];
+                    f.Close();
+                }
+
+                else if (activeForm.Name == "ProductFocusesForm")
+                {
+                    ProductFocusesForm f = (ProductFocusesForm)Application.OpenForms["ProductFocusesForm"];
+                    f.Close();
+                }
+
+                else if (activeForm.Name == "ProductPricesForm")
+                {
+                    ProductPricesForm f = (ProductPricesForm)Application.OpenForms["ProductPricesForm"];
+                    f.Close();
+                }
+
+                else if (activeForm.Name == "ResultForm")
+                {
+                    ResultForm f = (ResultForm)Application.OpenForms["ResultForm"];
+                    f.Close();
+                }
+
+                activeForm = null;
+            } 
+
+        }
         #endregion
 
         #region Borderless Form Ekranýný Sürükleme ve Yeniden Boyutlandýrma

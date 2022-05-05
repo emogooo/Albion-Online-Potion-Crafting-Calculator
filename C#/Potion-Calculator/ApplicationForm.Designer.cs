@@ -77,7 +77,7 @@
             this.panelSideMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelSideMenu.Location = new System.Drawing.Point(6, 42);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(200, 556);
+            this.panelSideMenu.Size = new System.Drawing.Size(200, 600);
             this.panelSideMenu.TabIndex = 2;
             // 
             // btOther
@@ -313,14 +313,14 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(206, 42);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(438, 556);
+            this.panelChildForm.Size = new System.Drawing.Size(500, 600);
             this.panelChildForm.TabIndex = 3;
             // 
             // pictureBoxName
             // 
             this.pictureBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxName.Image = global::Potion_Calculator.Properties.Resources.appname;
-            this.pictureBoxName.Location = new System.Drawing.Point(114, 256);
+            this.pictureBoxName.Location = new System.Drawing.Point(145, 278);
             this.pictureBoxName.Name = "pictureBoxName";
             this.pictureBoxName.Size = new System.Drawing.Size(185, 139);
             this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -331,7 +331,7 @@
             // 
             this.pictureBoxChildForm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxChildForm.Image = global::Potion_Calculator.Properties.Resources.pot2;
-            this.pictureBoxChildForm.Location = new System.Drawing.Point(161, 162);
+            this.pictureBoxChildForm.Location = new System.Drawing.Point(192, 184);
             this.pictureBoxChildForm.Name = "pictureBoxChildForm";
             this.pictureBoxChildForm.Size = new System.Drawing.Size(93, 88);
             this.pictureBoxChildForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -350,7 +350,7 @@
             this.panelTitleBar.Location = new System.Drawing.Point(6, 6);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.panelTitleBar.Size = new System.Drawing.Size(638, 36);
+            this.panelTitleBar.Size = new System.Drawing.Size(700, 36);
             this.panelTitleBar.TabIndex = 4;
             this.panelTitleBar.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDoubleClick);
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
@@ -367,7 +367,7 @@
             this.btMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btMinimize.Location = new System.Drawing.Point(533, 5);
+            this.btMinimize.Location = new System.Drawing.Point(595, 5);
             this.btMinimize.Name = "btMinimize";
             this.btMinimize.Size = new System.Drawing.Size(35, 26);
             this.btMinimize.TabIndex = 3;
@@ -384,7 +384,7 @@
             this.btFullScreen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFullScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btFullScreen.Location = new System.Drawing.Point(568, 5);
+            this.btFullScreen.Location = new System.Drawing.Point(630, 5);
             this.btFullScreen.Name = "btFullScreen";
             this.btFullScreen.Size = new System.Drawing.Size(35, 26);
             this.btFullScreen.TabIndex = 2;
@@ -401,7 +401,7 @@
             this.btClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(5)))), ((int)(((byte)(48)))));
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btClose.Location = new System.Drawing.Point(603, 5);
+            this.btClose.Location = new System.Drawing.Point(665, 5);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(35, 26);
             this.btClose.TabIndex = 1;
@@ -425,7 +425,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(650, 604);
+            this.ClientSize = new System.Drawing.Size(712, 648);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.panelTitleBar);

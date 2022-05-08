@@ -96,8 +96,10 @@
             this.dataGridView.RowHeadersWidth = 100;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView.Size = new System.Drawing.Size(484, 561);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // name
             // 
@@ -105,7 +107,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.name.DefaultCellStyle = dataGridViewCellStyle2;
             this.name.HeaderText = "İsim";
-            this.name.MinimumWidth = 180;
+            this.name.MinimumWidth = 100;
             this.name.Name = "name";
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.name.Width = 300;
@@ -114,7 +116,7 @@
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Fiyat";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 150;
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 50;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.Width = 183;
             // 

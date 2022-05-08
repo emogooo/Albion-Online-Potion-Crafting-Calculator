@@ -32,8 +32,8 @@
 
         private void ProductionMaterialPricesForm_SizeChanged(object sender, EventArgs e)
         {
-            dataGridView.Columns[0].Width = Size.Width * 300 / 483;
-            dataGridView.Columns[1].Width = Size.Width * 183 / 483;
+            dataGridView.Columns[0].Width = Size.Width * 290 / 483;
+            dataGridView.Columns[1].Width = Size.Width * 170 / 483;
             int fontSize = (Size.Height + Size.Width) / 120;
             if (fontSize < 11)
                 fontSize = 11;
@@ -41,6 +41,11 @@
                 fontSize = 16;
             dataGridView.DefaultCellStyle.Font = new Font("Segoe UI", fontSize / 1.0f, GraphicsUnit.Pixel);
             dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", fontSize + 2 / 1.0f, GraphicsUnit.Pixel);
+        }
+
+        private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Lütfen seçili hücreye tamsayı girdiğinizden emin olun.", "Hata");
         }
     }
 }

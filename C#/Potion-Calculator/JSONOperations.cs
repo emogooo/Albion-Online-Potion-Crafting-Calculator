@@ -9,6 +9,7 @@ namespace Potion_Calculator
         public static string dataFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\AlbionOnlinePCC";
         public static string productionMaterialsJSONPath = dataFolderPath + "\\production-materials.json";
         public static string productsJSONPath = dataFolderPath + "\\products.json";
+        public static string settingsJSONPath = dataFolderPath + "\\settings.json";
         public static void createLocalJSONDatabase() // AppData/Local konumunda, yoksa json dosyalarını oluşturur.
         {
             Directory.CreateDirectory(dataFolderPath);
@@ -46,7 +47,7 @@ namespace Potion_Calculator
                     fs.Close();
                 };
             }
-            if (!File.Exists(dataFolderPath + "\\products.json"))
+            if (!File.Exists(productsJSONPath))
             {
                 using (FileStream fs = File.Create(productsJSONPath))
                 {
@@ -308,6 +309,18 @@ namespace Potion_Calculator
                     fs.Write(jsonBytes);
                     fs.Close();
                 }; 
+            }
+            if (!File.Exists(settingsJSONPath))
+            {
+                using (FileStream fs = File.Create(settingsJSONPath))
+                {
+                    List<Settings> settings = new List<Settings>();
+                    settings.Add(new Settings() { focus = 30000, setupFee = 1000, returnRate = 47.9, minProductionQuantity = 100, minProductionPercent = 10, maxProductionPercent = 30 });
+                    string jsonString = getItemsAsString<Settings>(settings);
+                    byte[] jsonBytes = new UTF8Encoding(true).GetBytes(jsonString);
+                    fs.Write(jsonBytes);
+                    fs.Close();
+                };
             }
         }
 

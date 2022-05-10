@@ -17,7 +17,7 @@
                 settings = JSONOperations.getItemsAsClass<Settings>(json);
             }
             textBoxFocus.Text = Convert.ToString(settings[0].focus);
-            textBoxSetupFee.Text = Convert.ToString(settings[0].setupFee);
+            textBoxFee.Text = Convert.ToString(settings[0].fee);
             textBoxReturnRate.Text = Convert.ToString(settings[0].returnRate);
             textBoxMinProductionQuantity.Text = Convert.ToString(settings[0].minProductionQuantity);
             textBoxMinProductionPercent.Text = Convert.ToString(settings[0].minProductionPercent);
@@ -29,7 +29,7 @@
             try
             {
                 settings[0].focus = Convert.ToInt32(textBoxFocus.Text);
-                settings[0].setupFee = Convert.ToInt32(textBoxSetupFee.Text);
+                settings[0].fee = Convert.ToInt32(textBoxFee.Text);
                 settings[0].returnRate = Convert.ToDouble(textBoxReturnRate.Text);
                 settings[0].minProductionQuantity = Convert.ToInt32(textBoxMinProductionQuantity.Text);
                 settings[0].minProductionPercent = Convert.ToInt32(textBoxMinProductionPercent.Text);
@@ -52,9 +52,9 @@
                 {
                     textBoxFocus.Text = "0";
                 }
-                else if (x > 30000)
+                else if (x > 150000)
                 {
-                    textBoxFocus.Text = "30000";
+                    textBoxFocus.Text = "150000";
                 }
             }
             catch (Exception)
@@ -67,16 +67,16 @@
         {
             try
             {
-                int x = Convert.ToInt32(textBoxSetupFee.Text);
+                int x = Convert.ToInt32(textBoxFee.Text);
                 if (x < 0)
                 {
-                    textBoxSetupFee.Text = "0";
+                    textBoxFee.Text = "0";
                 }
             }
             catch (Exception)
             {
 
-                textBoxSetupFee.Text = "0";
+                textBoxFee.Text = "0";
             }
         }
 

@@ -1,4 +1,6 @@
-﻿namespace Potion_Calculator
+﻿using System.Text;
+
+namespace Potion_Calculator
 {
     public partial class ProductPricesForm : Form
     {

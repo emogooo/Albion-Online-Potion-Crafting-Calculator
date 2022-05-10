@@ -24,10 +24,27 @@ namespace Potion_Calculator
 
         private void openChildForm(Form childForm)
         {
-            if (activeForm != null)
+            if (activeForm == null)
             {
-                activeForm.Close();
+                startChildForm(childForm);
             }
+            else
+            {
+                if (String.Equals(activeForm.Name, childForm.Name))
+                {
+                    return;
+                }
+                else if (!String.Equals(activeForm.Name, childForm.Name))
+                {
+                    activeForm.Close();
+                    startChildForm(childForm);
+                }
+            }
+
+        }
+
+        private void startChildForm(Form childForm)
+        {
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;

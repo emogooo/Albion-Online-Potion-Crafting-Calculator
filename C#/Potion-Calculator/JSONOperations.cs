@@ -293,7 +293,7 @@ namespace Potion_Calculator
                     List<ProductionMaterialForProducts> cornPML = new List<ProductionMaterialForProducts>();
                     List<ProductionMaterialForProducts> pumpkinPML = new List<ProductionMaterialForProducts>();
 
-                    potatoPML.Add(new ProductionMaterialForProducts() { name = " Potatoes", amount = 1 });
+                    potatoPML.Add(new ProductionMaterialForProducts() { name = "Potatoes", amount = 1 });
 
                     cornPML.Add(new ProductionMaterialForProducts() { name = "Bundle of Corn", amount = 1 });
 
@@ -315,7 +315,7 @@ namespace Potion_Calculator
                 using (FileStream fs = File.Create(settingsJSONPath))
                 {
                     List<Settings> settings = new List<Settings>();
-                    settings.Add(new Settings() { focus = 30000, setupFee = 1000, returnRate = 47.9, minProductionQuantity = 100, minProductionPercent = 10, maxProductionPercent = 30 });
+                    settings.Add(new Settings() { focus = 30000, fee = 1000, returnRate = 47.9, minProductionQuantity = 100, minProductionPercent = 10, maxProductionPercent = 30 });
                     string jsonString = getItemsAsString<Settings>(settings);
                     byte[] jsonBytes = new UTF8Encoding(true).GetBytes(jsonString);
                     fs.Write(jsonBytes);

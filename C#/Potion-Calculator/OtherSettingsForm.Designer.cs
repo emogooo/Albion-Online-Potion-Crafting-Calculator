@@ -35,7 +35,7 @@
             this.labelMinProductionQuantity = new System.Windows.Forms.Label();
             this.labelMaxProductionPercent = new System.Windows.Forms.Label();
             this.textBoxFocus = new System.Windows.Forms.TextBox();
-            this.textBoxSetupFee = new System.Windows.Forms.TextBox();
+            this.textBoxFee = new System.Windows.Forms.TextBox();
             this.textBoxReturnRate = new System.Windows.Forms.TextBox();
             this.textBoxMinProductionQuantity = new System.Windows.Forms.TextBox();
             this.textBoxMinProductionPercent = new System.Windows.Forms.TextBox();
@@ -62,9 +62,9 @@
             this.labelFee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.labelFee.Location = new System.Drawing.Point(55, 185);
             this.labelFee.Name = "labelFee";
-            this.labelFee.Size = new System.Drawing.Size(90, 25);
+            this.labelFee.Size = new System.Drawing.Size(188, 25);
             this.labelFee.TabIndex = 1;
-            this.labelFee.Text = "Setup Fee";
+            this.labelFee.Text = "Tezgâh Kullanım Ücreti";
             // 
             // labelMinProductionPercent
             // 
@@ -128,19 +128,19 @@
             this.textBoxFocus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxFocus.Leave += new System.EventHandler(this.textBoxFocus_Leave);
             // 
-            // textBoxSetupFee
+            // textBoxFee
             // 
-            this.textBoxSetupFee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxSetupFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.textBoxSetupFee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSetupFee.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSetupFee.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxSetupFee.Location = new System.Drawing.Point(281, 185);
-            this.textBoxSetupFee.Name = "textBoxSetupFee";
-            this.textBoxSetupFee.Size = new System.Drawing.Size(150, 24);
-            this.textBoxSetupFee.TabIndex = 6;
-            this.textBoxSetupFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxSetupFee.Leave += new System.EventHandler(this.textBoxSetupFee_Leave);
+            this.textBoxFee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.textBoxFee.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFee.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFee.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxFee.Location = new System.Drawing.Point(281, 185);
+            this.textBoxFee.Name = "textBoxFee";
+            this.textBoxFee.Size = new System.Drawing.Size(150, 24);
+            this.textBoxFee.TabIndex = 6;
+            this.textBoxFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxFee.Leave += new System.EventHandler(this.textBoxSetupFee_Leave);
             // 
             // textBoxReturnRate
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.textBoxMinProductionPercent);
             this.Controls.Add(this.textBoxMinProductionQuantity);
             this.Controls.Add(this.textBoxReturnRate);
-            this.Controls.Add(this.textBoxSetupFee);
+            this.Controls.Add(this.textBoxFee);
             this.Controls.Add(this.textBoxFocus);
             this.Controls.Add(this.labelMaxProductionPercent);
             this.Controls.Add(this.labelMinProductionQuantity);
@@ -233,7 +233,7 @@
         private Label labelMinProductionQuantity;
         private Label labelMaxProductionPercent;
         private TextBox textBoxFocus;
-        private TextBox textBoxSetupFee;
+        private TextBox textBoxFee;
         private TextBox textBoxReturnRate;
         private TextBox textBoxMinProductionQuantity;
         private TextBox textBoxMinProductionPercent;

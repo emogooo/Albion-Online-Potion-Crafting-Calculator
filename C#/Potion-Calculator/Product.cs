@@ -10,6 +10,7 @@
         public int dailySalesAmount { get; set; }
         public double feeFactor { get; set; }
         public List<ProductionMaterialForProducts> productionMaterials { get; set; }
+
     }
 
     public class ProductionMaterialForProducts: ProductionMaterial

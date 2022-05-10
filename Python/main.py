@@ -431,10 +431,10 @@ class App():
                 dproductFocuses[item["name"]] = item["focus"]
 
             results = list()
-            t40energyPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Hen Eggs"])) * (100 - rr) / 100) + (1.35 * fee)
-            t41energyPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Hen Eggs"]) + (9 * dproductionMaterialPrices["Adept's Arcane Essence"])) * (100 - rr) / 100) + (1.35 * fee)
-            t60energyPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Goose Eggs"]) + (18 * dproductionMaterialPrices["Potato Schnapps"])) * (100 - rr) / 100) + (4.86 * fee)
-            t61energyPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Goose Eggs"]) + (18 * dproductionMaterialPrices["Potato Schnapps"]) + (5 * dproductionMaterialPrices["Master's Arcane Essence"]))  * (100 - rr) / 100) + (4.86 * fee)
+            t40energyPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goat's Milk"])) * (100 - rr) / 100) + (1.35 * fee)
+            t41energyPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goat's Milk"]) + (9 * dproductionMaterialPrices["Adept's Arcane Essence"])) * (100 - rr) / 100) + (1.35 * fee)
+            t60energyPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Sheep's Milk"]) + (18 * dproductionMaterialPrices["Potato Schnapps"])) * (100 - rr) / 100) + (4.86 * fee)
+            t61energyPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Sheep's Milk"]) + (18 * dproductionMaterialPrices["Potato Schnapps"]) + (5 * dproductionMaterialPrices["Master's Arcane Essence"]))  * (100 - rr) / 100) + (4.86 * fee)
             
             t50stickyPrice = (((24 * dproductionMaterialPrices["Dragon Teasel"]) + (12 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goose Eggs"])) * (100 - rr) / 100) + (1.89 * fee)
             t51stickyPrice = (((24 * dproductionMaterialPrices["Dragon Teasel"]) + (12 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goose Eggs"]) + (5 * dproductionMaterialPrices["Expert's Arcane Essence"])) * (100 - rr) / 100) + (1.89 * fee)
@@ -444,8 +444,8 @@ class App():
             t80invisPrice = (((72 * dproductionMaterialPrices["Ghoul Yarrow"]) + (36 * dproductionMaterialPrices["Firetouched Mullein"]) + (36 * dproductionMaterialPrices["Dragon Teasel"]) + (18 * dproductionMaterialPrices["Cow's Milk"]) + (18 * dproductionMaterialPrices["Pumpkin Moonshine"])) * (100 - rr) / 100) + (8.1 * fee)
             t81invisPrice = (((72 * dproductionMaterialPrices["Ghoul Yarrow"]) + (36 * dproductionMaterialPrices["Firetouched Mullein"]) + (36 * dproductionMaterialPrices["Dragon Teasel"]) + (18 * dproductionMaterialPrices["Cow's Milk"]) + (18 * dproductionMaterialPrices["Pumpkin Moonshine"]) + (1 * dproductionMaterialPrices["Elder's Arcane Essence"])) * (100 - rr) / 100) + (8.1 * fee)
 
-            t40healPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goat's Milk"])) * (100 - rr) / 100) + (1.35 * fee)
-            t41healPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Goat's Milk"]) + (9 * dproductionMaterialPrices["Adept's Arcane Essence"])) * (100 - rr) / 100) + (1.35 * fee)
+            t40healPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Hen Eggs"])) * (100 - rr) / 100) + (1.35 * fee)
+            t41healPrice = (((24 * dproductionMaterialPrices["Crenellated Burdock"]) + (6 * dproductionMaterialPrices["Hen Eggs"]) + (9 * dproductionMaterialPrices["Adept's Arcane Essence"])) * (100 - rr) / 100) + (1.35 * fee)
             t60healPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Goose Eggs"]) + (18 * dproductionMaterialPrices["Potato Schnapps"])) * (100 - rr) / 100) + (4.86 * fee)
             t61healPrice = (((72 * dproductionMaterialPrices["Elusive Foxglove"]) + (18 * dproductionMaterialPrices["Goose Eggs"]) + (18 * dproductionMaterialPrices["Potato Schnapps"]) + (5 * dproductionMaterialPrices["Master's Arcane Essence"]))  * (100 - rr) / 100) + (4.86 * fee)
             

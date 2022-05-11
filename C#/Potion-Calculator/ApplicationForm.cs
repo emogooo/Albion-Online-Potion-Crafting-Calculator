@@ -40,7 +40,6 @@ namespace Potion_Calculator
                     startChildForm(childForm);
                 }
             }
-
         }
 
         private void startChildForm(Form childForm)
@@ -229,7 +228,7 @@ namespace Potion_Calculator
             }
             base.WndProc(ref m);
         }
-        
+
         #region Form Ekranýný Özel Baþlýk Çubuðundan Tutup Sürükleme
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {

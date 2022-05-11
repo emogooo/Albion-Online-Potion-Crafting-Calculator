@@ -78,8 +78,9 @@
                         break;
                     }
                 }
-                percentageResults.Add(new ProductionPercentageResult() {productionPercentage = productionPercentage,
-                    totalProfit = totalProfit, focusUsage = settings[0].focus - focus });
+                percentageResults.Add(new ProductionPercentageResult() {productionPercentage = productionPercentage, 
+                    focusUsage = settings[0].focus - focus, formattedFocusUsage = getFormattedInteger(settings[0].focus - focus),
+                    totalProfit = totalProfit, formattedTotalProfit = getFormattedInteger(totalProfit)});
             }
             return percentageResults;
         }
@@ -95,9 +96,7 @@
                 {
                     continue;
                 }
-                double percentProfitPerProduction = (profitPerProduction / productionCost) * 100;
                 double totalProfit = profitPerProduction * (settings[0].focus / product.focus);
-                double totalProduction = getTotalProduction(product);
 
                 results.Add(new Result() {name = product.name, tier = product.tier, enchantment = product.enchantment,
                     fullName = getFullName(product.name, product.tier, product.enchantment),
@@ -105,17 +104,13 @@
                     formattedProductionCost = getFormattedInteger(Convert.ToInt32(productionCost)),
                     profitPerProduction = Convert.ToInt32(profitPerProduction),
                     formattedProfitPerProduction = getFormattedInteger(Convert.ToInt32(profitPerProduction)),
-                    percentProfitPerProduction = getFormattedDouble(percentProfitPerProduction),
                     totalProfit = Convert.ToInt32(totalProfit),
                     formattedTotalProfit = getFormattedInteger(Convert.ToInt32(totalProfit)),
-                    totalProduction = Convert.ToInt32(totalProduction),
-                    formattedTotalProduction = getFormattedInteger(Convert.ToInt32(totalProduction)),
                     product = product});
             }
 
             return results.OrderByDescending(o => o.totalProfit).ToList();
         }
-
         private static double getProductionCost(Product product)
         {
             double cost = 0;
@@ -129,20 +124,6 @@
             cost += product.feeFactor * settings[0].fee;
 
             return cost;
-        }
-
-        private static double getTotalProduction(Product product)
-        {
-            double totalProduction;
-            if (String.Equals(product.name, "Potato Schnapps") || String.Equals(product.name, "Corn Hooch") || String.Equals(product.name, "Pumpkin Moonshine"))
-            {
-                totalProduction = (settings[0].focus / product.focus);
-            }
-            else
-            {
-                totalProduction = 5 * (settings[0].focus / product.focus);
-            }
-            return totalProduction;
         }
 
         private static double getProfitPerProduction(Product product, double productionCost)

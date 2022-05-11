@@ -10,11 +10,8 @@
         public string formattedProductionCost { get; set; }
         public int profitPerProduction { get; set; }
         public string formattedProfitPerProduction { get; set; }
-        public double percentProfitPerProduction { get; set; }
         public int totalProfit { get; set; }
         public string formattedTotalProfit { get; set; }
-        public int totalProduction { get; set; }
-        public string formattedTotalProduction { get; set; }
         public Product product { get; set; }
     }
 }

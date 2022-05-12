@@ -57,9 +57,9 @@
 
         private void dataGridView_SizeChanged(object sender, EventArgs e)
         {
-            dataGridView.Columns[0].Width = Size.Width * 240 / 483;
-            dataGridView.Columns[1].Width = Size.Width * 110 / 483;
-            dataGridView.Columns[2].Width = Size.Width * 110 / 483;
+            dataGridView.Columns[0].Width = Size.Width * 245 / 483;
+            dataGridView.Columns[1].Width = Size.Width * 119 / 483;
+            dataGridView.Columns[2].Width = Size.Width * 119 / 483;
             int fontSize = (Size.Height + Size.Width) / 100;
             if (fontSize < 13)
                 fontSize = 13;

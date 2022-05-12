@@ -30,11 +30,11 @@ namespace Potion_Calculator
             }
             else
             {
-                if (String.Equals(activeForm.Name, childForm.Name))
+                if (Equals(activeForm.Name, childForm.Name))
                 {
                     return;
                 }
-                else if (!String.Equals(activeForm.Name, childForm.Name))
+                else
                 {
                     activeForm.Close();
                     startChildForm(childForm);
@@ -126,46 +126,10 @@ namespace Potion_Calculator
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
-            {
-                if (activeForm.Name == "OtherSettingsForm")
-                {
-                    OtherSettingsForm f = (OtherSettingsForm)Application.OpenForms["OtherSettingsForm"];
-                    f.Close();
-                }
-
-                else if (activeForm.Name == "ProductionMaterialPricesForm")
-                {
-                    ProductionMaterialPricesForm f = (ProductionMaterialPricesForm)Application.OpenForms["ProductionMaterialPricesForm"];
-                    f.Close();
-                }
-
-                else if (activeForm.Name == "ProductDailySalesAmountForm")
-                {
-                    ProductDailySalesAmountForm f = (ProductDailySalesAmountForm)Application.OpenForms["ProductDailySalesAmountForm"];
-                    f.Close();
-                }
-
-                else if (activeForm.Name == "ProductFocusesForm")
-                {
-                    ProductFocusesForm f = (ProductFocusesForm)Application.OpenForms["ProductFocusesForm"];
-                    f.Close();
-                }
-
-                else if (activeForm.Name == "ProductPricesForm")
-                {
-                    ProductPricesForm f = (ProductPricesForm)Application.OpenForms["ProductPricesForm"];
-                    f.Close();
-                }
-
-                else if (activeForm.Name == "ResultForm")
-                {
-                    ResultForm f = (ResultForm)Application.OpenForms["ResultForm"];
-                    f.Close();
-                }
-
+            { 
+                activeForm.Close();
                 activeForm = null;
-            } 
-
+            }
         }
         #endregion
 

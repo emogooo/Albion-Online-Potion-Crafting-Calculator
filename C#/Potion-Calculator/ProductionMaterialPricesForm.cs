@@ -32,8 +32,8 @@
 
         private void ProductionMaterialPricesForm_SizeChanged(object sender, EventArgs e)
         {
-            dataGridView.Columns[0].Width = Size.Width * 290 / 483;
-            dataGridView.Columns[1].Width = Size.Width * 170 / 483;
+            dataGridView.Columns[0].Width = Size.Width * 300 / 483;
+            dataGridView.Columns[1].Width = Size.Width * 183 / 483;
             int fontSize = (Size.Height + Size.Width) / 120;
             if (fontSize < 11)
                 fontSize = 11;

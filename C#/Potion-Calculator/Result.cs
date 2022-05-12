@@ -12,6 +12,10 @@
         public string formattedProfitPerProduction { get; set; }
         public int totalProfit { get; set; }
         public string formattedTotalProfit { get; set; }
+        public int productionAmount { get; set; }
+        public string formattedProductionAmount { get; set; }
+        public int focusUsageAmount { get; set; }
+        public string formattedFocusUsageAmount { get; set; }
         public Product product { get; set; }
     }
 }

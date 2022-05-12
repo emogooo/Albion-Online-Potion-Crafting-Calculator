@@ -37,10 +37,10 @@ namespace Potion_Calculator
 
         private void ProductPricesForm_SizeChanged(object sender, EventArgs e)
         {
-            dataGridView.Columns[0].Width = Size.Width * 145 / 483;
-            dataGridView.Columns[1].Width = Size.Width * 105 / 483;
-            dataGridView.Columns[2].Width = Size.Width * 105 / 483;
-            dataGridView.Columns[3].Width = Size.Width * 105 / 483;
+            dataGridView.Columns[0].Width = Size.Width * 155 / 483;
+            dataGridView.Columns[1].Width = Size.Width * 110 / 483;
+            dataGridView.Columns[2].Width = Size.Width * 109 / 483;
+            dataGridView.Columns[3].Width = Size.Width * 109 / 483;
             int fontSize = (Size.Height + Size.Width) / 120;
             if (fontSize < 11)
                 fontSize = 11;

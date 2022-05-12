@@ -5,6 +5,7 @@
         private static List<Product> products;
         private static List<ProductionMaterial> productionMaterials;
         private static List<Settings> settings;
+        private static List<Result> results;
 
         private static void getItems()
         {
@@ -51,7 +52,7 @@
         {
             getItems();
             updateProducts();
-            List<Result> results = getResults();
+            getResults();
             List<ProductionPercentageResult> percentageResults = new List<ProductionPercentageResult>();
             for (int productionPercentage = settings[0].minProductionPercent; productionPercentage <= settings[0].maxProductionPercent; productionPercentage++)
             {
@@ -74,7 +75,7 @@
                     {
                         expectedQuantityToBeProduced = getExpectedQuantityToBeProducedLast(result.product, focus);
                         totalProfit = getTotalProfit(result, expectedQuantityToBeProduced, totalProfit);
-                        focus = 0;
+                        focus = focus % result.product.focus;
                         break;
                     }
                 }
@@ -85,9 +86,9 @@
             return percentageResults;
         }
 
-        private static List<Result> getResults()
+        private static void getResults()
         {
-            List< Result> results = new List<Result>();
+            results = new List<Result>();
             foreach (Product product in products)
             {
                 double productionCost = getProductionCost(product);
@@ -108,9 +109,74 @@
                     formattedTotalProfit = getFormattedInteger(Convert.ToInt32(totalProfit)),
                     product = product});
             }
-
-            return results.OrderByDescending(o => o.totalProfit).ToList();
+            results = results.OrderByDescending(o => o.totalProfit).ToList();
         }
+
+        public static List<Result> getResult(int productionPercentage)
+        {
+            List<Result> percentResult = new List<Result>();
+            int focus = settings[0].focus;
+            foreach (Result result in results)
+            {
+                int expectedQuantityToBeProduced = getExpectedQuantityToBeProduced(result.product, productionPercentage);
+                if (expectedQuantityToBeProduced < settings[0].minProductionQuantity)
+                {
+                    continue;
+                }
+                int amountOfFocusRequiredForProduction = getAmountOfFocusRequiredForProduction(result.product, expectedQuantityToBeProduced);
+                if (focus - amountOfFocusRequiredForProduction >= 0)
+                {
+                    focus -= amountOfFocusRequiredForProduction;
+                    int profit = getTotalProfit(result, expectedQuantityToBeProduced, 0);
+
+                    percentResult.Add(new Result
+                    {
+                        name = result.name,
+                        tier = result.tier,
+                        enchantment = result.enchantment,
+                        fullName = result.fullName,
+                        productionCost = result.productionCost,
+                        formattedProductionCost = result.formattedProductionCost,
+                        profitPerProduction = result.profitPerProduction,
+                        formattedProfitPerProduction = result.formattedProfitPerProduction,
+                        totalProfit = profit,
+                        formattedTotalProfit = getFormattedInteger(profit),
+                        productionAmount = expectedQuantityToBeProduced,
+                        formattedProductionAmount = getFormattedInteger(expectedQuantityToBeProduced),
+                        focusUsageAmount = amountOfFocusRequiredForProduction,
+                        formattedFocusUsageAmount = getFormattedInteger(amountOfFocusRequiredForProduction),
+                        product = result.product
+                    });
+                }
+                else
+                {
+                    expectedQuantityToBeProduced = getExpectedQuantityToBeProducedLast(result.product, focus);
+                    int profit = getTotalProfit(result, expectedQuantityToBeProduced, 0);
+                    focus -= focus % result.product.focus;
+                    percentResult.Add(new Result
+                    {
+                        name = result.name,
+                        tier = result.tier,
+                        enchantment = result.enchantment,
+                        fullName = result.fullName,
+                        productionCost = result.productionCost,
+                        formattedProductionCost = result.formattedProductionCost,
+                        profitPerProduction = result.profitPerProduction,
+                        formattedProfitPerProduction = result.formattedProfitPerProduction,
+                        totalProfit = profit,
+                        formattedTotalProfit = getFormattedInteger(profit),
+                        productionAmount = expectedQuantityToBeProduced,
+                        formattedProductionAmount = getFormattedInteger(expectedQuantityToBeProduced),
+                        focusUsageAmount = focus,
+                        formattedFocusUsageAmount = getFormattedInteger(focus),
+                        product = result.product
+                    });
+                    break;
+                }
+            }
+            return percentResult;
+        }
+
         private static double getProductionCost(Product product)
         {
             double cost = 0;

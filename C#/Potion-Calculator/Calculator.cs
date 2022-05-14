@@ -101,12 +101,12 @@
 
                 results.Add(new Result() {name = product.name, tier = product.tier, enchantment = product.enchantment,
                     fullName = getFullName(product.name, product.tier, product.enchantment),
-                    productionCost = Convert.ToInt32(productionCost),
-                    formattedProductionCost = getFormattedInteger(Convert.ToInt32(productionCost)),
-                    profitPerProduction = Convert.ToInt32(profitPerProduction),
-                    formattedProfitPerProduction = getFormattedInteger(Convert.ToInt32(profitPerProduction)),
-                    totalProfit = Convert.ToInt32(totalProfit),
-                    formattedTotalProfit = getFormattedInteger(Convert.ToInt32(totalProfit)),
+                    productionCost = Convert.ToInt32(Math.Floor(productionCost)),
+                    formattedProductionCost = getFormattedInteger(Convert.ToInt32(Math.Floor(productionCost))),
+                    profitPerProduction = Convert.ToInt32(Math.Floor(profitPerProduction)),
+                    formattedProfitPerProduction = getFormattedInteger(Convert.ToInt32(Math.Floor(profitPerProduction))),
+                    totalProfit = Convert.ToInt32(Math.Floor(totalProfit)),
+                    formattedTotalProfit = getFormattedInteger(Convert.ToInt32(Math.Floor(totalProfit))),
                     product = product});
             }
             results = results.OrderByDescending(o => o.totalProfit).ToList();
@@ -174,7 +174,94 @@
                     break;
                 }
             }
+
+            int totalProductionCost = 0;
+            int totalProfitPerProduciton = 0;
+            int totalProfit = 0;
+            int totalProductionAmount = 0;
+            int totalFocusUsageAmount = 0;
+            foreach (Result result in percentResult)
+            {
+                totalProductionCost += result.productionCost;
+                totalProfitPerProduciton += result.profitPerProduction;
+                totalProfit += result.totalProfit;
+                totalProductionAmount += result.productionAmount;
+                totalFocusUsageAmount += result.focusUsageAmount;
+            }
+            percentResult.Add(new Result
+            {
+                fullName = "Toplam",
+                productionCost = totalProductionCost,
+                formattedProductionCost = getFormattedInteger(totalProductionCost),
+                profitPerProduction = totalProfitPerProduciton,
+                formattedProfitPerProduction = getFormattedInteger(totalProfitPerProduciton),
+                totalProfit = totalProfit,
+                formattedTotalProfit = getFormattedInteger(totalProfit),
+                productionAmount = totalProductionAmount,
+                formattedProductionAmount = getFormattedInteger(totalProductionAmount),
+                focusUsageAmount = totalFocusUsageAmount,
+                formattedFocusUsageAmount = getFormattedInteger(totalFocusUsageAmount)
+            });
+
             return percentResult;
+        }
+
+        public static List<string> getProductionList(Product product, int productionAmount)
+        {
+            List<string> productionList = new List<string>();
+            if (!(Equals(product.name, "Potato Schnapps") || Equals(product.name, "Corn Hooch") || Equals(product.name, "Pumpkin Moonshine")))
+            {
+                productionAmount /= 5;
+            }
+            foreach (ProductionMaterialForProducts item in product.productionMaterials)
+            {
+                int purchasePercentage = getPurchasePercentage(item, productionAmount);
+                int itemAmount = getItemAmount(purchasePercentage, item.amount, productionAmount);
+                productionList.Add(item.name + " - " + getFormattedInteger(itemAmount) + " adet");
+            }
+
+            return productionList;
+        }
+
+        public static List<string> getTotalProductionList(List<Result> results)
+        {
+            List<string> productionList = new List<string>();
+            Dictionary<string, int> productionListDictionary = new Dictionary<string, int>();
+            foreach (Result result in results)
+            {
+                if (!Equals(result.fullName, "Toplam"))
+                {
+                    foreach (ProductionMaterialForProducts productionMaterial in result.product.productionMaterials)
+                    {
+                        int productionAmount = result.productionAmount;
+                        if (!(Equals(productionMaterial.name, "Potato Schnapps") || Equals(productionMaterial.name, "Corn Hooch") || Equals(productionMaterial.name, "Pumpkin Moonshine")))
+                        {
+                            productionAmount /= 5;
+                        }
+                        int purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
+                        int itemAmount = getItemAmount(purchasePercentage, productionMaterial.amount, productionAmount);
+                        bool flag = true;
+                        foreach (KeyValuePair<string, int> item in productionListDictionary)
+                        {
+                            if (Equals(item.Key, productionMaterial.name))
+                            {
+                                productionListDictionary[item.Key] += itemAmount;
+                                flag = false;
+                            }
+                        }
+                        if (flag)
+                        {
+                            productionListDictionary.Add(productionMaterial.name, itemAmount);
+                        }
+                    }
+                }
+            }
+
+            foreach (KeyValuePair<string, int> item in productionListDictionary)
+            {
+                productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+            }
+            return productionList;
         }
 
         private static double getProductionCost(Product product)
@@ -211,11 +298,11 @@
             int expectedQuantityToBeProduced;
             if (String.Equals(product.name, "Potato Schnapps") || String.Equals(product.name, "Corn Hooch") || String.Equals(product.name, "Pumpkin Moonshine"))
             {
-                expectedQuantityToBeProduced = Convert.ToInt32((product.dailySalesAmount / 100.0) * productionPercentage);
+                expectedQuantityToBeProduced = Convert.ToInt32(Math.Floor((product.dailySalesAmount / 100.0) * productionPercentage));
             }
             else
             {
-                expectedQuantityToBeProduced = Convert.ToInt32((product.dailySalesAmount / 100.0) * productionPercentage);
+                expectedQuantityToBeProduced = Convert.ToInt32(Math.Floor((product.dailySalesAmount / 100.0) * productionPercentage));
                 if (expectedQuantityToBeProduced % 5 != 0)
                 {
                     expectedQuantityToBeProduced += 5 - (expectedQuantityToBeProduced % 5);
@@ -265,6 +352,55 @@
             return profit;
         }
 
+        private static int getPurchasePercentage(ProductionMaterialForProducts productionMaterial, int productionAmount)
+        {
+            int max = productionMaterial.amount;
+            int purchasePercentage = 0;
+            double returnRate = settings[0].returnRate;
+            int goal = max * productionAmount;
+            bool flag = false;
+            for (int i = Convert.ToInt32(Math.Floor(100 - returnRate)); i < 100; i++)
+            {
+                int itemAmount = Convert.ToInt32(Math.Floor((goal * i) / 100.0));
+                int totalItemAmount = 0;
+                double remainingNumber = 0;
+                while (true)
+                {
+                    if (itemAmount < max)
+                    {
+                        if (itemAmount + totalItemAmount >= goal)
+                        {
+                            purchasePercentage = i;
+                            flag = true;
+                            break;
+                        }
+                        break;
+                    }
+
+                    totalItemAmount += itemAmount;
+                    remainingNumber += (itemAmount * (returnRate / 100.0)) % 1;
+                    itemAmount = Convert.ToInt32(Math.Floor(itemAmount * (returnRate / 100.0)));
+                    if (remainingNumber >= 1)
+                    {
+                        itemAmount += Convert.ToInt32(Math.Floor(remainingNumber));
+                        remainingNumber %= 1;
+                    }
+                }
+
+                if (flag)
+                {
+                    break;
+                }
+            }
+
+            return purchasePercentage;
+        }
+
+        private static int getItemAmount(int purchasePercentage, int itemAmount, int productionAmount)
+        {
+            return Convert.ToInt32(Math.Ceiling((purchasePercentage * (itemAmount * productionAmount)) / 100.0));
+        }
+
         private static string getFormattedInteger(int num)
         {
             if (num == 0)
@@ -312,11 +448,6 @@
                 b = '-' + b;
             }
             return b;
-        }
-
-        private static double getFormattedDouble(double num)
-        {
-            return Math.Truncate(num * 100) / 100;
         }
 
         private static string getFullName(string name, int tier, int enc)

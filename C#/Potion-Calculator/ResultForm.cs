@@ -2,10 +2,13 @@
 {
     public partial class ResultForm : Form
     {
+        List<Result> resultList;
         public ResultForm()
         {
             InitializeComponent();
             dataGridViewPercentageResult.Hide();
+            btBack.Hide();
+            listBox.Hide();
             fillDGV();
         }
 
@@ -44,16 +47,67 @@
             dataGridViewPercentageResult.DefaultCellStyle.Font = new Font("Segoe UI", fontSize / 1.0f, GraphicsUnit.Pixel);
             dataGridViewPercentageResult.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", fontSize + 1 / 1.0f, GraphicsUnit.Pixel);
         }
+        private void listBox_SizeChanged(object sender, EventArgs e)
+        {
+            listBox.Size = new Size(Width, Height - (btBack.Height + dataGridViewPercentageResult.Height));
+            listBox.Location = new Point(0, dataGridViewPercentageResult.Height);
+            int fontSize = (Size.Height + Size.Width) / 120;
+            if (fontSize < 13)
+                fontSize = 13;
+            if (fontSize > 18)
+                fontSize = 18;
+            listBox.Font = new Font("Segoe UI", fontSize / 1.0f, GraphicsUnit.Pixel);
+        }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 dataGridView.Hide();
-                dataGridViewPercentageResult.DataSource = Calculator.getResult(Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value));
+                resultList = Calculator.getResult(Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value));
+                dataGridViewPercentageResult.DataSource = resultList;
                 dataGridViewPercentageResult.Size = new Size(dataGridView.Size.Width, 65 + (25 * dataGridViewPercentageResult.Rows.Count));
                 dataGridViewPercentageResult.Show();
+                btBack.Show();
+                listBox.Show();
             }
+        }
+        private void dataGridViewPercentageResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == dataGridViewPercentageResult.RowCount - 1)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add("");
+                listBox.Items.Add("Listedeki tüm ürünleri üretebilmeniz için almanız gerekenler:");
+                listBox.Items.Add("");
+                List<string> itemList = Calculator.getTotalProductionList(resultList);
+                foreach (string item in itemList)
+                {
+                    listBox.Items.Add(item);
+                }
+            }
+            else if (e.RowIndex != -1)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add("");
+                listBox.Items.Add(Convert.ToString(dataGridViewPercentageResult.Rows[e.RowIndex].Cells[4].Value) + " adet " +
+                    Convert.ToString(dataGridViewPercentageResult.Rows[e.RowIndex].Cells[0].Value) + " üretebilmeniz için almanız gerekenler:");
+                listBox.Items.Add("");
+                List<string> itemList = Calculator.getProductionList(resultList[e.RowIndex].product, resultList[e.RowIndex].productionAmount);
+                foreach (string item in itemList)
+                {
+                    listBox.Items.Add(item);
+                }
+            }
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            btBack.Hide();
+            listBox.Items.Clear();
+            listBox.Hide();
+            dataGridViewPercentageResult.Hide();
+            dataGridView.Show();
         }
     }
 }

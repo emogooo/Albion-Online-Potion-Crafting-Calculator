@@ -46,6 +46,8 @@
             this.formattedProductionAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formattedFocusUsageAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btBack = new System.Windows.Forms.Button();
+            this.listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productionPercentageResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPercentageResult)).BeginInit();
@@ -135,6 +137,7 @@
             this.dataGridViewPercentageResult.AutoGenerateColumns = false;
             this.dataGridViewPercentageResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPercentageResult.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.dataGridViewPercentageResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPercentageResult.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewPercentageResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -167,14 +170,16 @@
             this.dataGridViewPercentageResult.EnableHeadersVisualStyles = false;
             this.dataGridViewPercentageResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.dataGridViewPercentageResult.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPercentageResult.MultiSelect = false;
             this.dataGridViewPercentageResult.Name = "dataGridViewPercentageResult";
             this.dataGridViewPercentageResult.ReadOnly = true;
             this.dataGridViewPercentageResult.RowHeadersVisible = false;
             this.dataGridViewPercentageResult.RowTemplate.Height = 25;
-            this.dataGridViewPercentageResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewPercentageResult.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridViewPercentageResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPercentageResult.Size = new System.Drawing.Size(484, 137);
+            this.dataGridViewPercentageResult.Size = new System.Drawing.Size(484, 204);
             this.dataGridViewPercentageResult.TabIndex = 1;
+            this.dataGridViewPercentageResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPercentageResult_CellClick);
             this.dataGridViewPercentageResult.SizeChanged += new System.EventHandler(this.dataGridViewPercentageResult_SizeChanged);
             // 
             // fullNameDataGridViewTextBoxColumn
@@ -223,12 +228,45 @@
             // 
             this.resultBindingSource.DataSource = typeof(Potion_Calculator.Result);
             // 
+            // btBack
+            // 
+            this.btBack.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btBack.FlatAppearance.BorderSize = 0;
+            this.btBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBack.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btBack.Location = new System.Drawing.Point(0, 496);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(484, 65);
+            this.btBack.TabIndex = 2;
+            this.btBack.Text = "Geri Git";
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
+            // listBox
+            // 
+            this.listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.listBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox.ForeColor = System.Drawing.Color.ForestGreen;
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 15;
+            this.listBox.Location = new System.Drawing.Point(0, 204);
+            this.listBox.Name = "listBox";
+            this.listBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox.Size = new System.Drawing.Size(484, 292);
+            this.listBox.TabIndex = 3;
+            this.listBox.SizeChanged += new System.EventHandler(this.listBox_SizeChanged);
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.btBack);
             this.Controls.Add(this.dataGridViewPercentageResult);
             this.Controls.Add(this.dataGridView);
             this.Name = "ResultForm";
@@ -256,5 +294,7 @@
         private DataGridViewTextBoxColumn formattedProductionAmountDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn formattedFocusUsageAmountDataGridViewTextBoxColumn;
         private BindingSource resultBindingSource;
+        private Button btBack;
+        private ListBox listBox;
     }
 }

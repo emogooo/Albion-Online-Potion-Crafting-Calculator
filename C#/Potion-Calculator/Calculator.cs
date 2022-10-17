@@ -88,28 +88,46 @@
 
         private static void getResults()
         {
-            results = new List<Result>();
-            foreach (Product product in products)
+            try
             {
-                double productionCost = getProductionCost(product);
-                double profitPerProduction = getProfitPerProduction(product, productionCost);
-                if (profitPerProduction <= 0)
+                results = new List<Result>();
+                foreach (Product product in products)
                 {
-                    continue;
-                }
-                double totalProfit = profitPerProduction * (settings[0].focus / product.focus);
+                    double productionCost = getProductionCost(product);
+                    double profitPerProduction = getProfitPerProduction(product, productionCost);
+                    if (profitPerProduction <= 0)
+                    {
+                        continue;
+                    }
+                    double totalProfit = profitPerProduction * (settings[0].focus / product.focus);
 
-                results.Add(new Result() {name = product.name, tier = product.tier, enchantment = product.enchantment,
-                    fullName = getFullName(product.name, product.tier, product.enchantment),
-                    productionCost = Convert.ToInt32(Math.Floor(productionCost)),
-                    formattedProductionCost = getFormattedInteger(Convert.ToInt32(Math.Floor(productionCost))),
-                    profitPerProduction = Convert.ToInt32(Math.Floor(profitPerProduction)),
-                    formattedProfitPerProduction = getFormattedInteger(Convert.ToInt32(Math.Floor(profitPerProduction))),
-                    totalProfit = Convert.ToInt32(Math.Floor(totalProfit)),
-                    formattedTotalProfit = getFormattedInteger(Convert.ToInt32(Math.Floor(totalProfit))),
-                    product = product});
+                    results.Add(new Result()
+                    {
+                        name = product.name,
+                        tier = product.tier,
+                        enchantment = product.enchantment,
+                        fullName = getFullName(product.name, product.tier, product.enchantment),
+                        productionCost = Convert.ToInt32(Math.Floor(productionCost)),
+                        formattedProductionCost = getFormattedInteger(Convert.ToInt32(Math.Floor(productionCost))),
+                        profitPerProduction = Convert.ToInt32(Math.Floor(profitPerProduction)),
+                        formattedProfitPerProduction = getFormattedInteger(Convert.ToInt32(Math.Floor(profitPerProduction))),
+                        totalProfit = Convert.ToInt32(Math.Floor(totalProfit)),
+                        formattedTotalProfit = getFormattedInteger(Convert.ToInt32(Math.Floor(totalProfit))),
+                        product = product
+                    });
+                }
+                results = results.OrderByDescending(o => o.totalProfit).ToList();
             }
-            results = results.OrderByDescending(o => o.totalProfit).ToList();
+            catch (DivideByZeroException ex)
+            {
+                MessageBox.Show("Lütfen focus bilgilerinizi kontrol edin.", "Sıfıra Bölünme Hatası");
+                results = new List<Result>();
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show("Hesaplanmaya çalışılan sayı çok büyük veya çok küçük. Doğru sonuçlara ulaşmak için lütfen gerçek değerler girin.", "Büyük Sayı Hatası");
+                results = new List<Result>();
+            }
         }
 
         public static List<Result> getResult(int productionPercentage)

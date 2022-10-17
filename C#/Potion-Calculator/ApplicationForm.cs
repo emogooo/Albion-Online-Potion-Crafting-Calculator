@@ -119,6 +119,11 @@ namespace Potion_Calculator
 
         private void btCalculate_Click(object sender, EventArgs e)
         {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm = null;
+            }
             openChildForm(new ResultForm());
             hideSubMenu();
         }

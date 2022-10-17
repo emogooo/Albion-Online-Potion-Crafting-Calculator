@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EsLHm0m4PNJm8zEdRji7yoVYs5LyZSbI2f0VJd5yej8dbzpy/aoST/b5prIxClE+emI/oVK9MBvnV3v2NVpIYw==",
+  "dgSpecHash": "Fz2IVrmMhjGFKkMs1RpdjOU3NNB05lFwqz8c7OmrafYl1kiSx0yyOc5DlvJq8eB6csWCK4ftdsgin4ZWySvgOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\tesseract\\4.1.1\\tesseract.4.1.1.nupkg.sha512"
   ],
   "logs": []
 }

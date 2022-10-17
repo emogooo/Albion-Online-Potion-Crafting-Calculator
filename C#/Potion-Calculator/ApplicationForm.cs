@@ -142,6 +142,7 @@ namespace Potion_Calculator
 
         protected override void WndProc(ref Message m) // Borderless Form ekranýnda yeniden boyutlandýrma yapar
         {
+            base.WndProc(ref m);
             if (m.Msg == 0x84)
             {
                 Point pos = new Point(m.LParam.ToInt32());
@@ -195,7 +196,6 @@ namespace Potion_Calculator
                 }
 
             }
-            base.WndProc(ref m);
         }
 
         #region Form Ekranýný Özel Baþlýk Çubuðundan Tutup Sürükleme

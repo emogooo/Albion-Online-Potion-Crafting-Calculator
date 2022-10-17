@@ -1,14 +1,21 @@
-﻿namespace Potion_Calculator
+﻿using System.Runtime.InteropServices;
+
+namespace Potion_Calculator
 {
     public partial class ProductionMaterialPricesForm : Form
     {
         
         List<ProductionMaterial> productionMaterials;
+
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+
         public ProductionMaterialPricesForm()
         {
             InitializeComponent();
             fillDGV();
             customizeDesign();
+            RegisterHotKey(this.Handle, 6016, 0, (int)Keys.F10);
         }
 
         private void fillDGV()
@@ -46,6 +53,19 @@
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Lütfen seçili hücreye tamsayı girdiğinizden emin olun.", "Hata");
+        }
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == 0x0312)
+            {
+                if (m.WParam.ToInt32() == 6016)
+                {
+                    MessageBox.Show("Ham maddeler çekildi");
+                    return;
+                }
+
+            }
         }
     }
 }

@@ -1,15 +1,24 @@
-﻿using System.Text;
+﻿using System;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using System.Text;
+using Tesseract;
 
 namespace Potion_Calculator
 {
     public partial class ProductPricesForm : Form
     {
         List<Product> products;
+
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+
         public ProductPricesForm()
         {
             InitializeComponent();
             fillDGV();
             customizeDesign();
+            RegisterHotKey(this.Handle, 6016, 0, (int)Keys.F10);
         }
 
         private void fillDGV()
@@ -52,6 +61,39 @@ namespace Potion_Calculator
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Lütfen seçili hücreye tamsayı girdiğinizden emin olun.", "Hata");
+        }
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == 0x0312)
+            {
+                if (m.WParam.ToInt32() == 6016)
+                {
+                    //Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+                    //                Screen.PrimaryScreen.Bounds.Height);
+                    //Graphics graphics = Graphics.FromImage(bitmap as Image);
+                    //graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+                    ////bitmap.Save(@"C:/Users/HP/Desktop/aaa.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    //var ocr = new TesseractEngine("./tessdata", "eng");
+                    //try
+                    //{
+                    //    using (var img = PixConverter.ToPix(bitmap))
+                    //    {
+                    //        using (var page = ocr.Process(img))
+                    //        {
+                    //            MessageBox.Show(page.GetText());
+                    //        }
+                    //    }
+                    //}
+                    //catch (Exception)
+                    //{
+                    //    return;
+                    //}
+                    
+                    //return;
+                }
+
+            }
         }
     }
 }

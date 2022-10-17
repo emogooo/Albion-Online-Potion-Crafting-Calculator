@@ -1,9 +1,12 @@
-﻿namespace Potion_Calculator
+﻿using System.Runtime.InteropServices;
+
+namespace Potion_Calculator
 {
     public partial class ProductFocusesForm : Form
     {
         List<Product> products;
         List<Product> tempProducts;
+
         public ProductFocusesForm()
         {
             InitializeComponent();
@@ -74,4 +77,5 @@
             MessageBox.Show("Lütfen seçili hücreye tamsayı girdiğinizden emin olun.", "Hata");
         }
     }
+
 }

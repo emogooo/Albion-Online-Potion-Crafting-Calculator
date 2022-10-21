@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Potion_Calculator
 {
@@ -9,6 +10,7 @@ namespace Potion_Calculator
 
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        private bool hotKeyListenerControl;
 
         public ProductionMaterialPricesForm()
         {
@@ -16,6 +18,7 @@ namespace Potion_Calculator
             fillDGV();
             customizeDesign();
             RegisterHotKey(this.Handle, 6016, 0, (int)Keys.F10);
+            hotKeyListenerControl = true;
         }
 
         private void fillDGV()
@@ -59,10 +62,33 @@ namespace Potion_Calculator
             base.WndProc(ref m);
             if (m.Msg == 0x0312)
             {
-                if (m.WParam.ToInt32() == 6016)
+                if (m.WParam.ToInt32() == 6016 && hotKeyListenerControl)
                 {
-                    MessageBox.Show("Ham maddeler çekildi");
-                    return;
+                    hotKeyListenerControl = false;
+                    string templatePath = "C:/Users/HP/Desktop/ProcessImage/templates";
+                    string ocrPath = "C:/Program Files/Tesseract-OCR/tesseract.exe";
+                    ProcessStartInfo start = new ProcessStartInfo();
+                    start.FileName = @"C:\Users\HP\Desktop\ProcessImage\ProcessImage.exe";
+                    start.Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"productionMaterial"}\"";
+                    start.UseShellExecute = false;
+                    start.RedirectStandardOutput = true;
+                    start.CreateNoWindow = true;
+                    string result;
+                    using (Process process = Process.Start(start))
+                    {
+                        result = process.StandardOutput.ReadToEnd();
+                    }
+                    if (result[0] == '0')
+                    {
+                        MessageBox.Show(result.Substring(1, result.Length - 1));
+                    }
+
+                    else if (result[0] == '1')
+                    {
+                        MessageBox.Show(result.Substring(1, result.Length - 1));
+                    }
+
+                    hotKeyListenerControl = true;
                 }
 
             }

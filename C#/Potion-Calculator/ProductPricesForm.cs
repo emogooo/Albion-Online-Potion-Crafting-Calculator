@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-
 namespace Potion_Calculator
 {
     public partial class ProductPricesForm : Form
@@ -70,10 +69,10 @@ namespace Potion_Calculator
                 if (m.WParam.ToInt32() == 6016 && hotKeyListenerControl)
                 {
                     hotKeyListenerControl = false;
-                    string templatePath = "C:/Users/HP/Desktop/ProcessImage/templates";
+                    string templatePath = "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates";
                     string ocrPath = "C:/Program Files/Tesseract-OCR/tesseract.exe";
                     ProcessStartInfo start = new ProcessStartInfo();
-                    start.FileName = @"C:\Users\HP\Desktop\ProcessImage\ProcessImage.exe";
+                    start.FileName = @"D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe";
                     start.Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"product"}\"";
                     start.UseShellExecute = false;
                     start.RedirectStandardOutput = true;

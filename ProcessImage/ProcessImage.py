@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import pyautogui
 import cv2
@@ -6,13 +5,16 @@ import sys
 from win32.win32gui import FindWindow, GetWindowRect
 import pytesseract as ts
 
+"""
+import matplotlib.pyplot as plt
+
 def show(x):
     plt.imshow(x)
     plt.show()
 
 def drawAndShow(img, coordinates):
     cv2.rectangle(img, (coordinates[0][0], coordinates[0][1]), (coordinates[1][0], coordinates[1][1]), (255,0,0), 1)
-    show(img)
+    show(img)"""
 
 def getUniqueList(nList):
     nList = np.unique(nList)
@@ -80,12 +82,11 @@ def main():
     gameRes = "0x0"
     if windowSizeX > 1000 and windowSizeX < 1050 and windowSizeY > 760 and windowSizeY < 820:
         gameRes = "1024x768"
-        buttonsCoordinateYEnd = 395
         buttonsCoordinateXStart = 635
         buttonsCoordinateXEnd = 680
         enchantPicCoordinateXStart = 10
         enchantPicCoordinateXEnd = 60
-        enchantPicControlNumber = 40
+        enchantPicControlNumber = 47
         enchantX = 13
         enchantY = 39
         namePicCoordinateXStart = 85
@@ -94,12 +95,11 @@ def main():
         pricePicCoordinateXEnd = 460
     elif windowSizeX > 1900 and windowSizeX < 1950 and windowSizeY > 1050 and windowSizeY < 1100:
         gameRes = "1920x1080"
-        buttonsCoordinateYEnd = 445
         buttonsCoordinateXStart = 715
         buttonsCoordinateXEnd = 765
         enchantPicCoordinateXStart = 5
         enchantPicCoordinateXEnd = 70
-        enchantPicControlNumber = 55
+        enchantPicControlNumber = 54
         enchantX = 19
         enchantY = 44
         namePicCoordinateXStart = 90
@@ -113,30 +113,32 @@ def main():
     img = pyautogui.screenshot()
     img = cv2.cvtColor(np.array(img), cv2.NORMAL_CLONE)
     img = img[startY:endY, startX:endX]
-    templatePath = sys.argv[1] # C:/Users/HP/Desktop/Process Image/templates/
+    templatePath = sys.argv[1] #"D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates" 
     topControl, topCoordinates = findTemplate(img, templatePath + "/topBar/" + gameRes + ".jpg", 90)
     if topControl:
         botControl, botCoordinates = findTemplate(img, templatePath + "/botBar/"+ gameRes + ".jpg", 90)
         if botControl:
             img = img[topCoordinates[1][1]:botCoordinates[0][1], topCoordinates[0][0]:botCoordinates[1][0]]
             resultList = list()
-            ocrPath = sys.argv[2] # C:/Program Files/Tesseract-OCR/tesseract.exe
-            windowName = sys.argv[3]
+            ocrPath = sys.argv[2] #"C:/Program Files/Tesseract-OCR/tesseract.exe"  
+            windowName = sys.argv[3] #"product"
             ts.pytesseract.tesseract_cmd = ocrPath
-            buttonImages = img[0:buttonsCoordinateYEnd, buttonsCoordinateXStart:buttonsCoordinateXEnd]
+            buttonImages = img[0:, buttonsCoordinateXStart:buttonsCoordinateXEnd]
             yPos, templateY = findAllMatches(buttonImages, templatePath + "/button/" + gameRes + ".jpg", 79, 50)
             if templateY == -1:
                 print("0Seçim butonları açık ve seçili şekilde görülmelidir.")
                 return
+            if windowName == "product":
+                allProductPics = img[0:, enchantPicCoordinateXStart:enchantPicCoordinateXEnd]
+                allProductPics = cv2.cvtColor(allProductPics, cv2.COLOR_RGB2GRAY)
+                allProductPics = cv2.cvtColor(allProductPics, cv2.COLOR_GRAY2RGB)
+                allProductPics = cv2.threshold(allProductPics, 128, 255, cv2.THRESH_BINARY)[1]
             for y in yPos:
                 if windowName == "product":
-                    enchantPic = img[y:y + templateY + 20, enchantPicCoordinateXStart:enchantPicCoordinateXEnd]
+                    enchantPic = allProductPics[y:y + templateY + 20, 0:]
                     _, _, encPicY = enchantPic.shape[::-1]
                     if encPicY < enchantPicControlNumber:
                         continue
-                    enchantPic = cv2.cvtColor(enchantPic, cv2.COLOR_RGB2GRAY)
-                    enchantPic = cv2.cvtColor(enchantPic, cv2.COLOR_GRAY2RGB)
-                    enchantPic = cv2.threshold(enchantPic, 128, 255, cv2.THRESH_BINARY)[1]
                     if enchantPic[enchantY,enchantX][0] == 0:
                         enc = "0"
                     elif enchantPic[enchantY,enchantX][0] == 255:

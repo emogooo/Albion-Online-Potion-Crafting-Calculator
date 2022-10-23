@@ -113,15 +113,15 @@ def main():
     img = pyautogui.screenshot()
     img = cv2.cvtColor(np.array(img), cv2.NORMAL_CLONE)
     img = img[startY:endY, startX:endX]
-    templatePath = sys.argv[1] #"D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates" 
+    templatePath = "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates" #sys.argv[1] #
     topControl, topCoordinates = findTemplate(img, templatePath + "/topBar/" + gameRes + ".jpg", 90)
     if topControl:
         botControl, botCoordinates = findTemplate(img, templatePath + "/botBar/"+ gameRes + ".jpg", 90)
         if botControl:
             img = img[topCoordinates[1][1]:botCoordinates[0][1], topCoordinates[0][0]:botCoordinates[1][0]]
             resultList = list()
-            ocrPath = sys.argv[2] #"C:/Program Files/Tesseract-OCR/tesseract.exe"  
-            windowName = sys.argv[3] #"product"
+            ocrPath = "C:/Program Files/Tesseract-OCR/tesseract.exe"  #sys.argv[2] #
+            windowName = "productionMaterial" #sys.argv[3] #
             ts.pytesseract.tesseract_cmd = ocrPath
             buttonImages = img[0:, buttonsCoordinateXStart:buttonsCoordinateXEnd]
             yPos, templateY = findAllMatches(buttonImages, templatePath + "/button/" + gameRes + ".jpg", 79, 50)

@@ -118,12 +118,12 @@
                 }
                 results = results.OrderByDescending(o => o.totalProfit).ToList();
             }
-            catch (DivideByZeroException ex)
+            catch (DivideByZeroException)
             {
                 MessageBox.Show("Lütfen focus bilgilerinizi kontrol edin.", "Sıfıra Bölünme Hatası");
                 results = new List<Result>();
             }
-            catch (OverflowException ex)
+            catch (OverflowException)
             {
                 MessageBox.Show("Hesaplanmaya çalışılan sayı çok büyük veya çok küçük. Doğru sonuçlara ulaşmak için lütfen gerçek değerler girin.", "Büyük Sayı Hatası");
                 results = new List<Result>();

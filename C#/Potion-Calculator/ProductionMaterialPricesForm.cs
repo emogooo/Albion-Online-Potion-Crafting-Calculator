@@ -33,6 +33,7 @@ namespace Potion_Calculator
         private void customizeDesign()
         {
             dataGridView.Columns[0].ReadOnly = true;
+            panelLoadingScreen.Opacity = 150;
         }
         private void ProductionMaterialPricesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -62,35 +63,167 @@ namespace Potion_Calculator
             base.WndProc(ref m);
             if (m.Msg == 0x0312)
             {
-                if (m.WParam.ToInt32() == 6016 && hotKeyListenerControl)
+                if (hotKeyListenerControl && m.WParam.ToInt32() == 6016)
                 {
                     hotKeyListenerControl = false;
-                    string templatePath = "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates";
-                    string ocrPath = "C:/Program Files/Tesseract-OCR/tesseract.exe";
-                    ProcessStartInfo start = new ProcessStartInfo();
-                    start.FileName = @"D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe";
-                    start.Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"productionMaterial"}\"";
-                    start.UseShellExecute = false;
-                    start.RedirectStandardOutput = true;
-                    start.CreateNoWindow = true;
-                    string result;
-                    using (Process process = Process.Start(start))
-                    {
-                        result = process.StandardOutput.ReadToEnd();
-                    }
-                    if (result[0] == '0')
-                    {
-                        MessageBox.Show(result.Substring(1, result.Length - 1));
-                    }
-
-                    else if (result[0] == '1')
-                    {
-                        MessageBox.Show(result.Substring(1, result.Length - 1));
-                    }
-
-                    hotKeyListenerControl = true;
+                    panelLoadingScreen.Visible = true;
+                    processImage("D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates", "C:/Program Files/Tesseract-OCR/tesseract.exe", "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe");
                 }
+            }
+        }
 
+        private string rawData;
+        private async void processImage(string templatePath, string ocrPath, string exePath)
+        {
+            ProcessStartInfo? psi = new()
+            {
+                FileName = exePath,
+                Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"productionMaterial"}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+
+            await startProcess(psi);
+
+            panelLoadingScreen.Visible = false;
+            hotKeyListenerControl = true;
+            new System.Media.SoundPlayer(@"D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\sound\beep.wav").Play();
+
+            if (rawData[0] == '0')
+            {
+                MessageBox.Show(rawData[1..], "Hata");
+            }
+
+            else if (rawData[0] == '1')
+            {
+
+                processAndWritePrices();
+            }
+        }
+
+        private Task startProcess(ProcessStartInfo psi)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                using Process? process = Process.Start(psi);
+                rawData = process.StandardOutput.ReadToEnd();
+            });
+        }
+
+        private void processAndWritePrices()
+        {
+            string[] rawResults = rawData[1..].Split('|');
+
+            foreach (string rawResult in rawResults)
+            {
+                string[] result = rawResult.Split('-');
+                string name;
+
+                if (result[0].Contains("Comfrey"))
+                {
+                    name = "Brightleaf Comfrey";
+                }
+                else if (result[0].Contains("Burdock"))
+                {
+                    name = "Crenellated Burdock";
+                }
+                else if (result[0].Contains("Teasel"))
+                {
+                    name = "Dragon Teasel";
+                }
+                else if (result[0].Contains("Foxglove"))
+                {
+                    name = "Elusive Foxglove";
+                }
+                else if (result[0].Contains("Mullein"))
+                {
+                    name = "Firetouched Mullein";
+                }
+                else if (result[0].Contains("Yarrow"))
+                {
+                    name = "Ghoul Yarrow";
+                }
+                else if (result[0].Contains("Hen"))
+                {
+                    name = "Hen Eggs";
+                }
+                else if (result[0].Contains("Goose"))
+                {
+                    name = "Goose Eggs";
+                }
+                else if (result[0].Contains("Goat"))
+                {
+                    name = "Goat's Milk";
+                }
+                else if (result[0].Contains("Sheep"))
+                {
+                    name = "Sheep's Milk";
+                }
+                else if (result[0].Contains("Cow"))
+                {
+                    name = "Cow's Milk";
+                }
+                else if (result[0].Contains("Schnapps"))
+                {
+                    name = "Potato Schnapps";
+                }
+                else if (result[0].Contains("Hooch"))
+                {
+                    name = "Corn Hooch";
+                }
+                else if (result[0].Contains("Moonshine"))
+                {
+                    name = "Pumpkin Moonshine";
+                }
+                else if (result[0].Contains("Potatoes"))
+                {
+                    name = "Potatoes";
+                }
+                else if (result[0].Contains("Bundle"))
+                {
+                    name = "Bundle of Corn";
+                }
+                else if (Equals(result[0], "Pumpkin"))
+                {
+                    name = "Pumpkin";
+                }
+                else if (result[0].Contains("Adept"))
+                {
+                    name = "Adept's Arcane Essence";
+                }
+                else if (result[0].Contains("Expert"))
+                {
+                    name = "Expert's Arcane Essence";
+                }
+                else if (result[0].Contains("Master"))
+                {
+                    name = "Master's Arcane Essence";
+                }
+                else if (result[0].Contains("Grandmaster"))
+                {
+                    name = "Grandmaster's Arcane Essence";
+                }
+                else if (result[0].Contains("Elder"))
+                {
+                    name = "Elder's Arcane Essence";
+                }
+                else
+                {
+                    continue;
+                }
+                
+
+                for (int i = 0; i < dataGridView.RowCount; i++)
+                {
+                    if (Equals(dataGridView.Rows[i].Cells[0].Value, name))
+                    {
+                        productionMaterials[i].price = Convert.ToInt32(result[1]);
+                        dataGridView.Rows[i].Cells[1].Value = result[1];
+                        dataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(23, 21, 50);
+                        break;
+                    }
+                }
             }
         }
     }

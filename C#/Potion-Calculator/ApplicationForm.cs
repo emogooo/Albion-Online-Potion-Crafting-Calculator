@@ -37,6 +37,7 @@ namespace Potion_Calculator
                 else
                 {
                     activeForm.Close();
+                    activeForm = null;
                     startChildForm(childForm);
                 }
             }
@@ -88,6 +89,11 @@ namespace Potion_Calculator
 
         private void btProductPrices_Click(object sender, EventArgs e)
         {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm = null;
+            }
             openChildForm(new ProductPricesForm());
         }
 
@@ -108,11 +114,17 @@ namespace Potion_Calculator
 
         private void btProductionMaterialsPrices_Click(object sender, EventArgs e)
         {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm = null;
+            }
             openChildForm(new ProductionMaterialPricesForm());
         }
 
         private void btOther_Click(object sender, EventArgs e)
         {
+
             openChildForm(new OtherSettingsForm());
             hideSubMenu();
         }

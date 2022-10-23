@@ -1,4 +1,6 @@
-﻿namespace Potion_Calculator
+﻿using System.ComponentModel;
+
+namespace Potion_Calculator
 {
     partial class ProductPricesForm
     {
@@ -37,8 +39,11 @@
             this.enchantmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelLoadingScreen = new Potion_Calculator.ExtendedPanel();
+            this.labelWait = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.panelLoadingScreen.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -125,12 +130,38 @@
             // 
             this.productBindingSource.DataSource = typeof(Potion_Calculator.Product);
             // 
+            // panelLoadingScreen
+            // 
+            this.panelLoadingScreen.BackColor = System.Drawing.Color.Black;
+            this.panelLoadingScreen.Controls.Add(this.labelWait);
+            this.panelLoadingScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoadingScreen.Location = new System.Drawing.Point(0, 0);
+            this.panelLoadingScreen.Name = "panelLoadingScreen";
+            this.panelLoadingScreen.Size = new System.Drawing.Size(484, 561);
+            this.panelLoadingScreen.TabIndex = 1;
+            this.panelLoadingScreen.Visible = false;
+            // 
+            // labelWait
+            // 
+            this.labelWait.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelWait.AutoSize = true;
+            this.labelWait.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(13)))));
+            this.labelWait.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelWait.ForeColor = System.Drawing.Color.Coral;
+            this.labelWait.Location = new System.Drawing.Point(200, 268);
+            this.labelWait.Name = "labelWait";
+            this.labelWait.Size = new System.Drawing.Size(131, 42);
+            this.labelWait.TabIndex = 0;
+            this.labelWait.Text = "Görüntü İşleniyor\r\nLütfen Bekleyin";
+            this.labelWait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ProductPricesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.panelLoadingScreen);
             this.Controls.Add(this.dataGridView);
             this.Name = "ProductPricesForm";
             this.Text = "ProductPricesForm";
@@ -138,6 +169,8 @@
             this.SizeChanged += new System.EventHandler(this.ProductPricesForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            this.panelLoadingScreen.ResumeLayout(false);
+            this.panelLoadingScreen.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -150,5 +183,52 @@
         private DataGridViewTextBoxColumn tierDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn enchantmentDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private ExtendedPanel panelLoadingScreen;
+        private Label labelWait;
+    }
+
+    public class ExtendedPanel : Panel
+    {
+        private const int WS_EX_TRANSPARENT = 0x20;
+        public ExtendedPanel()
+        {
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.Opaque, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+            DoubleBuffered = false;
+        }
+
+        private int opacity = 1;
+
+        [DefaultValue(1)]
+        public int Opacity
+        {
+            get => opacity;
+            set
+            {
+                if (value < 0 || value > 255) throw new ArgumentException("value must be between 0 and 255");
+                opacity = value;
+                if (DesignMode) FindForm().Refresh();
+                Invalidate();
+            }
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | WS_EX_TRANSPARENT;
+                return cp;
+            }
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            using (var brush = new SolidBrush(Color.FromArgb(opacity, BackColor)))
+            {
+                e.Graphics.FillRectangle(brush, ClientRectangle);
+            }
+        }
     }
 }

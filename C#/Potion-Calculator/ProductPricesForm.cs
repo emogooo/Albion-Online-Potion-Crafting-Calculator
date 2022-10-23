@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Potion_Calculator
 {
@@ -22,7 +23,7 @@ namespace Potion_Calculator
 
         private void fillDGV()
         {
-            using (StreamReader r = new StreamReader(JSONOperations.productsJSONPath))
+            using (StreamReader? r = new StreamReader(JSONOperations.productsJSONPath))
             {
                 string json = r.ReadToEnd();
                 products = JSONOperations.getItemsAsClass<Product>(json);
@@ -35,6 +36,7 @@ namespace Potion_Calculator
             dataGridView.Columns[0].ReadOnly = true;
             dataGridView.Columns[1].ReadOnly = true;
             dataGridView.Columns[2].ReadOnly = true;
+            panelLoadingScreen.Opacity = 150;
         }
 
         private void ProductPricesForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,35 +68,178 @@ namespace Potion_Calculator
             base.WndProc(ref m);
             if (m.Msg == 0x0312)
             {
-                if (m.WParam.ToInt32() == 6016 && hotKeyListenerControl)
+                if (hotKeyListenerControl && m.WParam.ToInt32() == 6016)
                 {
                     hotKeyListenerControl = false;
-                    string templatePath = "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates";
-                    string ocrPath = "C:/Program Files/Tesseract-OCR/tesseract.exe";
-                    ProcessStartInfo start = new ProcessStartInfo();
-                    start.FileName = @"D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe";
-                    start.Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"product"}\"";
-                    start.UseShellExecute = false;
-                    start.RedirectStandardOutput = true;
-                    start.CreateNoWindow = true;
-                    string result;
-                    using (Process process = Process.Start(start))
+                    panelLoadingScreen.Visible = true;
+                    processImage("D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates", "C:/Program Files/Tesseract-OCR/tesseract.exe", "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe");
+                }
+            }
+        }
+
+        private string rawData;
+        private async void processImage(string templatePath, string ocrPath, string exePath)
+        {
+            ProcessStartInfo? psi = new()
+            {
+                FileName = exePath,
+                Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"product"}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+
+            await startProcess(psi);
+
+            panelLoadingScreen.Visible = false;
+            hotKeyListenerControl = true;
+            new System.Media.SoundPlayer(@"D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\sound\beep.wav").Play();
+
+            if (rawData[0] == '0')
+            {
+                MessageBox.Show(rawData[1..], "Hata");
+            }
+
+            else if (rawData[0] == '1')
+            {
+
+                processAndWritePrices();
+            }
+            
+        }
+
+        private Task startProcess(ProcessStartInfo psi)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                using Process? process = Process.Start(psi);
+                rawData = process.StandardOutput.ReadToEnd();
+            });          
+        }
+
+        private void processAndWritePrices()
+        {
+            string[] rawResults = rawData[1..].Split('|');
+
+            foreach (string rawResult in rawResults)
+            {
+                string[] result = rawResult.Split('-');
+                string name;
+                int tier;
+
+                if (result[0].Contains("Minor"))
+                {
+                    name = "Poison Potion";
+                    tier = 4;
+                }
+                else if (result[0].Contains("Major"))
+                {
+                    result[0] = result[0].Replace("Major" , "");
+                    if (result[0].Contains("Energy"))
                     {
-                        result = process.StandardOutput.ReadToEnd();
+                        name = "Energy Potion";
+                        tier = 6;
                     }
-                    if (result[0] == '0')
+                    else if (result[0].Contains("Sticky"))
                     {
-                        MessageBox.Show(result.Substring(1, result.Length - 1));
+                        name = "Sticky Potion";
+                        tier = 7;
                     }
-                    
-                    else if (result[0] == '1')
+                    else if (result[0].Contains("Healing"))
                     {
-                        MessageBox.Show(result.Substring(1, result.Length - 1));
+                        name = "Healing Potion";
+                        tier = 6;
                     }
-                    
-                    hotKeyListenerControl = true;
+                    else if (result[0].Contains("Gigantify"))
+                    {
+                        name = "Gigantify Potion";
+                        tier = 7;
+                    }
+                    else if (result[0].Contains("Resistance"))
+                    {
+                        name = "Resistance Potion";
+                        tier = 7;
+                    }
+                    else if (result[0].Contains("Poison"))
+                    {
+                        name = "Poison Potion";
+                        tier = 8;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (result[0].Contains("Energy"))
+                    {
+                        name = "Energy Potion";
+                        tier = 4;
+                    }
+                    else if (result[0].Contains("Sticky"))
+                    {
+                        name = "Sticky Potion";
+                        tier = 5;
+                    }
+                    else if (result[0].Contains("Healing"))
+                    {
+                        name = "Healing Potion";
+                        tier = 4;
+                    }
+                    else if (result[0].Contains("Gigantify"))
+                    {
+                        name = "Gigantify Potion";
+                        tier = 5;
+                    }
+                    else if (result[0].Contains("Resistance"))
+                    {
+                        name = "Resistance Potion";
+                        tier = 5;
+                    }
+                    else if (result[0].Contains("Poison"))
+                    {
+                        name = "Poison Potion";
+                        tier = 6;
+                    }
+                    else if (result[0].Contains("Invisibility"))
+                    {
+                        name = "Invisibility Potion";
+                        tier = 8;
+                    }
+                    else if (result[0].Contains("Potato"))
+                    {
+                        name = "Potato Schnapps";
+                        tier = 6;
+                    }
+                    else if (result[0].Contains("Corn"))
+                    {
+                        name = "Corn Hooch";
+                        tier = 7;
+                    }
+                    else if (result[0].Contains("Pumpkin"))
+                    {
+                        name = "Pumpkin Moonshine";
+                        tier = 8;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
 
+                int enc = Convert.ToInt32(result[1]);
+
+                for (int i = 0; i < dataGridView.RowCount; i++)
+                {
+                    if (Equals(dataGridView.Rows[i].Cells[0].Value, name) && Equals(dataGridView.Rows[i].Cells[1].Value, tier) && Equals(dataGridView.Rows[i].Cells[2].Value, enc))
+                    {
+                        products[i].price = Convert.ToInt32(result[2]);
+                        dataGridView.Rows[i].Cells[3].Value = result[2];
+                        dataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(23, 21, 50);
+                        break;
+                    }
+                }
             }
         }
     }

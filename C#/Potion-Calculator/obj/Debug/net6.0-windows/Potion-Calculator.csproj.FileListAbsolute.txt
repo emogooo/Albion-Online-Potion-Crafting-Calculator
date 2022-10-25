@@ -50,11 +50,6 @@ C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\
 C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion-Calculator.pdb
 C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion-Calculator.genruntimeconfig.cache
 C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\ref\Potion-Calculator.dll
-C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\x86\leptonica-1.80.0.dll
-C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\x86\tesseract41.dll
-C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\x64\leptonica-1.80.0.dll
-C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\x64\tesseract41.dll
-C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Tesseract.dll
 D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Potion-Calculator.exe
 D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Potion-Calculator.deps.json
 D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Potion-Calculator.runtimeconfig.json

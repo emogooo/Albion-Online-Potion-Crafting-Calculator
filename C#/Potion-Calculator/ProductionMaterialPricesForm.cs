@@ -7,6 +7,7 @@ namespace Potion_Calculator
     {
         
         List<ProductionMaterial> productionMaterials;
+        List<Settings> settings;
 
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
@@ -18,7 +19,31 @@ namespace Potion_Calculator
             fillDGV();
             customizeDesign();
             RegisterHotKey(this.Handle, 6016, 0, (int)Keys.F10);
-            hotKeyListenerControl = true;
+            checkOCR();
+        }
+        private async void checkOCR()
+        {
+            await checkSettings();
+            if (settings[0].ocrPath.Contains("tesseract.exe"))
+            {
+                hotKeyListenerControl = true;
+            }
+            else
+            {
+                hotKeyListenerControl = false;
+            }
+        }
+
+        private Task checkSettings()
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                using (StreamReader? r = new StreamReader(JSONOperations.settingsJSONPath))
+                {
+                    string json = r.ReadToEnd();
+                    settings = JSONOperations.getItemsAsClass<Settings>(json);
+                }
+            });
         }
 
         private void fillDGV()
@@ -67,18 +92,18 @@ namespace Potion_Calculator
                 {
                     hotKeyListenerControl = false;
                     panelLoadingScreen.Visible = true;
-                    processImage("D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates", "C:/Program Files/Tesseract-OCR/tesseract.exe", "D:/E/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe");
+                    processImage("C:/Users/HP/Desktop/Kişisel/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates", "C:/Users/HP/Desktop/Kişisel/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe");
                 }
             }
         }
 
         private string rawData;
-        private async void processImage(string templatePath, string ocrPath, string exePath)
+        private async void processImage(string templatePath, string exePath)
         {
             ProcessStartInfo? psi = new()
             {
                 FileName = exePath,
-                Arguments = $"\"{templatePath}\" \"{ocrPath}\" \"{"productionMaterial"}\"",
+                Arguments = $"\"{templatePath}\" \"{settings[0].ocrPath}\" \"{"productionMaterial"}\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true
@@ -88,7 +113,7 @@ namespace Potion_Calculator
 
             panelLoadingScreen.Visible = false;
             hotKeyListenerControl = true;
-            new System.Media.SoundPlayer(@"D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\sound\beep.wav").Play();
+            new System.Media.SoundPlayer(@"C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\sound\beep.wav").Play();
 
             if (rawData[0] == '0')
             {

@@ -8,5 +8,6 @@
         public int minProductionQuantity { get; set; }
         public int minProductionPercent { get; set; }
         public int maxProductionPercent { get; set; }
+        public string ocrPath { get; set; }
     }
 }

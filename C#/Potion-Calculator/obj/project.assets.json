@@ -52,19 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cakma\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
       "projectName": "Potion-Calculator",
-      "projectPath": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
-      "packagesPath": "C:\\Users\\cakma\\.nuget\\packages\\",
-      "outputPath": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
+      "projectPath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\cakma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,4 +1,6 @@
-﻿namespace Potion_Calculator
+﻿using System.Diagnostics;
+
+namespace Potion_Calculator
 {
     public partial class OtherSettingsForm : Form
     {
@@ -22,6 +24,7 @@
             textBoxMinProductionQuantity.Text = Convert.ToString(settings[0].minProductionQuantity);
             textBoxMinProductionPercent.Text = Convert.ToString(settings[0].minProductionPercent);
             textBoxMaxProductionPercent.Text = Convert.ToString(settings[0].maxProductionPercent);
+            textBoxOCRPath.Text = settings[0].ocrPath;
         }
 
         private void OtherSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,6 +37,7 @@
                 settings[0].minProductionQuantity = Convert.ToInt32(textBoxMinProductionQuantity.Text);
                 settings[0].minProductionPercent = Convert.ToInt32(textBoxMinProductionPercent.Text);
                 settings[0].maxProductionPercent = Convert.ToInt32(textBoxMaxProductionPercent.Text);
+                settings[0].ocrPath = textBoxOCRPath.Text;
                 string jsonString = JSONOperations.getItemsAsString(settings);
                 File.WriteAllText(JSONOperations.settingsJSONPath, jsonString);
             }
@@ -166,6 +170,28 @@
             catch (Exception)
             {
                 textBoxMaxProductionPercent.Text = "100";
+            }
+        }
+
+        private void textBoxOCRPath_MouseClick(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog file = new()
+            {
+                Filter = "exe Dosyası |*.exe",
+                RestoreDirectory = true,
+                Title = "\"tesseract.exe\" Dosyasını Seçiniz.."
+            };
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                if (Equals(file.SafeFileName, "tesseract.exe"))
+                {
+                   textBoxOCRPath.Text = file.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("Seçtiğiniz dosya tesseract.exe dosyası değildir.", "Yanlış Dosya Hatası");
+                }
             }
         }
     }

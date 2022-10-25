@@ -124,7 +124,11 @@ namespace Potion_Calculator
 
         private void btOther_Click(object sender, EventArgs e)
         {
-
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm = null;
+            }
             openChildForm(new OtherSettingsForm());
             hideSubMenu();
         }

@@ -58,9 +58,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
-      "projectName": "Potion-Calculator",
-      "projectPath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
+      "projectName": "Albion Online PCC",
+      "projectPath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
       "projectStyle": "PackageReference",

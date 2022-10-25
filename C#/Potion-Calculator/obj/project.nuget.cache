@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EsLHm0m4PNJm8zEdRji7yoVYs5LyZSbI2f0VJd5yej8dbzpy/aoST/b5prIxClE+emI/oVK9MBvnV3v2NVpIYw==",
+  "dgSpecHash": "+HCYAoaK8vhBmjkICY9t58YnhrSa3AlLEjblzr4zpztyBxYDzd8uyPPWfzSHnEshv0jsT2BT7HTLBmkubteQpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Potion-Calculator.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\Kişisel\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

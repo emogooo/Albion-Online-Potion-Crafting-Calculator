@@ -1,0 +1,26 @@
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.exe
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.deps.json
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.runtimeconfig.json
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.dll
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.pdb
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ApplicationForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.OtherSettingsForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductDailySalesAmountForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductFocusesForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductionMaterialPricesForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductPricesForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.Properties.Resources.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ResultForm.resources
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.AssemblyInfo.cs
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.CopyComplete
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.dll
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\refint\Albion Online PCC.dll
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.pdb
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.genruntimeconfig.cache
+C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\ref\Albion Online PCC.dll

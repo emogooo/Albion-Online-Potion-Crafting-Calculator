@@ -98,7 +98,8 @@ namespace Potion_Calculator
                 {
                     hotKeyListenerControl = false;
                     panelLoadingScreen.Visible = true;
-                    processImage("C:/Users/HP/Desktop/Kişisel/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/templates", "C:/Users/HP/Desktop/Kişisel/Github/Albion-Online-Potion-Crafting-Calculator/ProcessImage/ProcessImage.exe");
+                    processImage(AppContext.BaseDirectory + @"bin\PI\templates",
+                            AppContext.BaseDirectory + @"bin\PI\ProcessImage.exe");
                 }
             }
         }
@@ -119,7 +120,7 @@ namespace Potion_Calculator
 
             panelLoadingScreen.Visible = false;
             hotKeyListenerControl = true;
-            new System.Media.SoundPlayer(@"C:\Users\HP\Desktop\Kişisel\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\sound\beep.wav").Play();
+            new System.Media.SoundPlayer(AppContext.BaseDirectory + @"media\beep.wav").Play();
 
             if (rawData[0] == '0')
             {

@@ -251,11 +251,7 @@
                 {
                     foreach (ProductionMaterialForProducts productionMaterial in result.product.productionMaterials)
                     {
-                        int productionAmount = result.productionAmount;
-                        if (!(Equals(productionMaterial.name, "Potato Schnapps") || Equals(productionMaterial.name, "Corn Hooch") || Equals(productionMaterial.name, "Pumpkin Moonshine")))
-                        {
-                            productionAmount /= 5;
-                        }
+                        int productionAmount = result.productionAmount / 5;
                         int purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
                         int itemAmount = getItemAmount(purchasePercentage, productionMaterial.amount, productionAmount);
                         bool flag = true;

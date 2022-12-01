@@ -40,9 +40,6 @@
             this.textBoxMinProductionQuantity = new System.Windows.Forms.TextBox();
             this.textBoxMinProductionPercent = new System.Windows.Forms.TextBox();
             this.textBoxMaxProductionPercent = new System.Windows.Forms.TextBox();
-            this.labelOCRPath = new System.Windows.Forms.Label();
-            this.textBoxOCRPath = new System.Windows.Forms.TextBox();
-            this.openFileDialogOCR = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // labelFocus
@@ -206,46 +203,13 @@
             this.textBoxMaxProductionPercent.TabIndex = 11;
             this.textBoxMaxProductionPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxMaxProductionPercent.Leave += new System.EventHandler(this.textBoxMaxProductionPercent_Leave);
-            // 
-            // labelOCRPath
-            // 
-            this.labelOCRPath.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelOCRPath.AutoSize = true;
-            this.labelOCRPath.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOCRPath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelOCRPath.Location = new System.Drawing.Point(63, 480);
-            this.labelOCRPath.Name = "labelOCRPath";
-            this.labelOCRPath.Size = new System.Drawing.Size(197, 30);
-            this.labelOCRPath.TabIndex = 5;
-            this.labelOCRPath.Text = "Tesseract OCR Yolu";
-            // 
-            // textBoxOCRPath
-            // 
-            this.textBoxOCRPath.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxOCRPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.textBoxOCRPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxOCRPath.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxOCRPath.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxOCRPath.Location = new System.Drawing.Point(321, 480);
-            this.textBoxOCRPath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxOCRPath.Name = "textBoxOCRPath";
-            this.textBoxOCRPath.ReadOnly = true;
-            this.textBoxOCRPath.Size = new System.Drawing.Size(171, 29);
-            this.textBoxOCRPath.TabIndex = 12;
-            this.textBoxOCRPath.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxOCRPath.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxOCRPath_MouseClick);
-            // 
-            // openFileDialogOCR
-            // 
-            this.openFileDialogOCR.FileName = "openFileDialogOCR";
-            // 
+            //
             // OtherSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(553, 748);
-            this.Controls.Add(this.textBoxOCRPath);
             this.Controls.Add(this.textBoxMaxProductionPercent);
             this.Controls.Add(this.textBoxMinProductionPercent);
             this.Controls.Add(this.textBoxMinProductionQuantity);
@@ -258,7 +222,6 @@
             this.Controls.Add(this.labelMinProductionPercent);
             this.Controls.Add(this.labelFee);
             this.Controls.Add(this.labelFocus);
-            this.Controls.Add(this.labelOCRPath);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "OtherSettingsForm";
             this.Text = "OtherSettingsForm";
@@ -276,14 +239,11 @@
         private Label labelReturnRate;
         private Label labelMinProductionQuantity;
         private Label labelMaxProductionPercent;
-        private Label labelOCRPath;
         private TextBox textBoxFocus;
         private TextBox textBoxFee;
         private TextBox textBoxReturnRate;
         private TextBox textBoxMinProductionQuantity;
         private TextBox textBoxMinProductionPercent;
         private TextBox textBoxMaxProductionPercent;
-        private TextBox textBoxOCRPath;
-        private OpenFileDialog openFileDialogOCR;
     }
 }

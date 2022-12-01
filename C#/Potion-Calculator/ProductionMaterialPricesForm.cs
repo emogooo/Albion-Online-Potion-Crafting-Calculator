@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace Potion_Calculator
@@ -7,7 +8,6 @@ namespace Potion_Calculator
     {
         
         List<ProductionMaterial> productionMaterials;
-        List<Settings> settings;
 
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
@@ -19,33 +19,8 @@ namespace Potion_Calculator
             fillDGV();
             customizeDesign();
             RegisterHotKey(this.Handle, 6016, 0, (int)Keys.F10);
-            checkOCR();
+            hotKeyListenerControl = true;
         }
-        private async void checkOCR()
-        {
-            await checkSettings();
-            if (settings[0].ocrPath.Contains("tesseract.exe"))
-            {
-                hotKeyListenerControl = true;
-            }
-            else
-            {
-                hotKeyListenerControl = false;
-            }
-        }
-
-        private Task checkSettings()
-        {
-            return Task.Factory.StartNew(() =>
-            {
-                using (StreamReader? r = new StreamReader(JSONOperations.settingsJSONPath))
-                {
-                    string json = r.ReadToEnd();
-                    settings = JSONOperations.getItemsAsClass<Settings>(json);
-                }
-            });
-        }
-
         private void fillDGV()
         {
             using (StreamReader r = new StreamReader(JSONOperations.productionMaterialsJSONPath))
@@ -92,19 +67,17 @@ namespace Potion_Calculator
                 {
                     hotKeyListenerControl = false;
                     panelLoadingScreen.Visible = true;
-                    processImage(AppContext.BaseDirectory + @"bin\PI\templates",
-                            AppContext.BaseDirectory + @"bin\PI\ProcessImage.exe");
+                    processImage(AppContext.BaseDirectory + @"bin\sniffer.exe");
                 }
             }
         }
 
         private string rawData;
-        private async void processImage(string templatePath, string exePath)
+        private async void processImage(string exePath)
         {
             ProcessStartInfo? psi = new()
             {
                 FileName = exePath,
-                Arguments = $"\"{templatePath}\" \"{settings[0].ocrPath}\" \"{"productionMaterial"}\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true
@@ -146,91 +119,91 @@ namespace Potion_Calculator
                 string[] result = rawResult.Split('-');
                 string name;
 
-                if (result[0].Contains("Comfrey"))
+                if (result[0].Contains("COMFREY"))
                 {
                     name = "Brightleaf Comfrey";
                 }
-                else if (result[0].Contains("Burdock"))
+                else if (result[0].Contains("BURDOCK"))
                 {
                     name = "Crenellated Burdock";
                 }
-                else if (result[0].Contains("Teasel"))
+                else if (result[0].Contains("TEASEL"))
                 {
                     name = "Dragon Teasel";
                 }
-                else if (result[0].Contains("Foxglove"))
+                else if (result[0].Contains("FOXGLOVE"))
                 {
                     name = "Elusive Foxglove";
                 }
-                else if (result[0].Contains("Mullein"))
+                else if (result[0].Contains("MULLEIN"))
                 {
                     name = "Firetouched Mullein";
                 }
-                else if (result[0].Contains("Yarrow"))
+                else if (result[0].Contains("YARROW"))
                 {
                     name = "Ghoul Yarrow";
                 }
-                else if (result[0].Contains("Hen"))
+                else if (result[0].Contains("T3_EGG"))
                 {
                     name = "Hen Eggs";
                 }
-                else if (result[0].Contains("Goose"))
+                else if (result[0].Contains("T5_EGG"))
                 {
                     name = "Goose Eggs";
                 }
-                else if (result[0].Contains("Goat"))
+                else if (result[0].Contains("T4_MILK"))
                 {
                     name = "Goat's Milk";
                 }
-                else if (result[0].Contains("Sheep"))
+                else if (result[0].Contains("T6_MILK"))
                 {
                     name = "Sheep's Milk";
                 }
-                else if (result[0].Contains("Cow"))
+                else if (result[0].Contains("T8_MILK"))
                 {
                     name = "Cow's Milk";
                 }
-                else if (result[0].Contains("Schnapps"))
+                else if (result[0].Contains("T6_ALCOHOL"))
                 {
                     name = "Potato Schnapps";
                 }
-                else if (result[0].Contains("Hooch"))
+                else if (result[0].Contains("T7_ALCOHOL"))
                 {
                     name = "Corn Hooch";
                 }
-                else if (result[0].Contains("Moonshine"))
+                else if (result[0].Contains("T8_ALCOHOL"))
                 {
                     name = "Pumpkin Moonshine";
                 }
-                else if (result[0].Contains("Potatoes"))
+                else if (result[0].Contains("T6_POTATO"))
                 {
                     name = "Potatoes";
                 }
-                else if (result[0].Contains("Bundle"))
+                else if (result[0].Contains("T7_CORN"))
                 {
                     name = "Bundle of Corn";
                 }
-                else if (Equals(result[0], "Pumpkin"))
+                else if (result[0].Contains("T8_PUMPKIN"))
                 {
                     name = "Pumpkin";
                 }
-                else if (result[0].Contains("Adept"))
+                else if (result[0].Contains("T4_ESSENCE_POTION"))
                 {
                     name = "Adept's Arcane Essence";
                 }
-                else if (result[0].Contains("Expert"))
+                else if (result[0].Contains("T5_ESSENCE_POTION"))
                 {
                     name = "Expert's Arcane Essence";
                 }
-                else if (result[0].Contains("Master"))
+                else if (result[0].Contains("T6_ESSENCE_POTION"))
                 {
                     name = "Master's Arcane Essence";
                 }
-                else if (result[0].Contains("Grandmaster"))
+                else if (result[0].Contains("T7_ESSENCE_POTION"))
                 {
                     name = "Grandmaster's Arcane Essence";
                 }
-                else if (result[0].Contains("Elder"))
+                else if (result[0].Contains("T8_ESSENCE_POTION"))
                 {
                     name = "Elder's Arcane Essence";
                 }
@@ -244,8 +217,9 @@ namespace Potion_Calculator
                 {
                     if (Equals(dataGridView.Rows[i].Cells[0].Value, name))
                     {
-                        productionMaterials[i].price = Convert.ToInt32(result[1]);
-                        dataGridView.Rows[i].Cells[1].Value = result[1];
+                        int price = Convert.ToInt32(result[1]);
+                        productionMaterials[i].price = price;
+                        dataGridView.Rows[i].Cells[1].Value = price;
                         dataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(23, 21, 50);
                         break;
                     }

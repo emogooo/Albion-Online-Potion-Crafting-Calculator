@@ -85,12 +85,14 @@ namespace Potion_Calculator
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(484, 561);
+            this.dataGridView.Size = new System.Drawing.Size(553, 748);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
@@ -136,8 +138,9 @@ namespace Potion_Calculator
             this.panelLoadingScreen.Controls.Add(this.labelWait);
             this.panelLoadingScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLoadingScreen.Location = new System.Drawing.Point(0, 0);
+            this.panelLoadingScreen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLoadingScreen.Name = "panelLoadingScreen";
-            this.panelLoadingScreen.Size = new System.Drawing.Size(484, 561);
+            this.panelLoadingScreen.Size = new System.Drawing.Size(553, 748);
             this.panelLoadingScreen.TabIndex = 1;
             this.panelLoadingScreen.Visible = false;
             // 
@@ -148,21 +151,22 @@ namespace Potion_Calculator
             this.labelWait.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(13)))));
             this.labelWait.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelWait.ForeColor = System.Drawing.Color.Coral;
-            this.labelWait.Location = new System.Drawing.Point(200, 268);
+            this.labelWait.Location = new System.Drawing.Point(229, 357);
             this.labelWait.Name = "labelWait";
-            this.labelWait.Size = new System.Drawing.Size(131, 42);
+            this.labelWait.Size = new System.Drawing.Size(154, 56);
             this.labelWait.TabIndex = 0;
-            this.labelWait.Text = "Görüntü İşleniyor\r\nLütfen Bekleyin";
+            this.labelWait.Text = "Paket Dinleniyor\r\nLütfen Bekleyin";
             this.labelWait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProductPricesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(484, 561);
+            this.ClientSize = new System.Drawing.Size(553, 748);
             this.Controls.Add(this.panelLoadingScreen);
             this.Controls.Add(this.dataGridView);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProductPricesForm";
             this.Text = "ProductPricesForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductPricesForm_FormClosing);

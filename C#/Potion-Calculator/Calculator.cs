@@ -233,7 +233,11 @@
             }
             foreach (ProductionMaterialForProducts item in product.productionMaterials)
             {
-                int purchasePercentage = getPurchasePercentage(item, productionAmount);
+                int purchasePercentage = 100;
+                if (productionAmount != 1)
+                {
+                    purchasePercentage = getPurchasePercentage(item, productionAmount);
+                }
                 int itemAmount = getItemAmount(purchasePercentage, item.amount, productionAmount);
                 productionList.Add(item.name + " - " + getFormattedInteger(itemAmount) + " adet");
             }
@@ -252,7 +256,11 @@
                     foreach (ProductionMaterialForProducts productionMaterial in result.product.productionMaterials)
                     {
                         int productionAmount = result.productionAmount / 5;
-                        int purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
+                        int purchasePercentage = 100;
+                        if (productionAmount != 1)
+                        {
+                            purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
+                        } 
                         int itemAmount = getItemAmount(purchasePercentage, productionMaterial.amount, productionAmount);
                         bool flag = true;
                         foreach (KeyValuePair<string, int> item in productionListDictionary)
@@ -298,11 +306,11 @@
             double profitPerProduction;
             if (String.Equals(product.name, "Potato Schnapps") || String.Equals(product.name, "Corn Hooch") || String.Equals(product.name, "Pumpkin Moonshine"))
             {
-                profitPerProduction = (product.price * 95.5 / 100) - productionCost;
+                profitPerProduction = (product.price * 93.5 / 100) - productionCost;
             }
             else
             {
-                profitPerProduction = ((5 * product.price) * 95.5 / 100) - productionCost;
+                profitPerProduction = ((5 * product.price) * 93.5 / 100) - productionCost;
             }
             return profitPerProduction;
         }

@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_6B43631B87694732B542B4E007F989A7"
+        "MsmKey" = "8:_4C27CB9927554EC09ADC50BE5C553764"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B9B6BC60C8AC4307BF37A06036B6CD50"
+        "MsmKey" = "8:_6B43631B87694732B542B4E007F989A7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,6 +99,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -131,12 +139,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B43631B87694732B542B4E007F989A7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C27CB9927554EC09ADC50BE5C553764"
             {
-            "SourcePath" = "8:..\\Potion-Calculator\\imgs\\icon.ico"
-            "TargetName" = "8:icon.ico"
+            "SourcePath" = "8:..\\Sniffer\\sniffer.exe"
+            "TargetName" = "8:sniffer.exe"
             "Tag" = "8:"
-            "Folder" = "8:_CA10DE6190964D03BE2DBE4D4D74F59D"
+            "Folder" = "8:_4E15C24D04814839AF6B09C628D72DE2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -151,12 +159,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9B6BC60C8AC4307BF37A06036B6CD50"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B43631B87694732B542B4E007F989A7"
             {
-            "SourcePath" = "8:..\\Sniffer\\dist\\sniffer.exe"
-            "TargetName" = "8:sniffer.exe"
+            "SourcePath" = "8:..\\Potion-Calculator\\imgs\\icon.ico"
+            "TargetName" = "8:icon.ico"
             "Tag" = "8:"
-            "Folder" = "8:_4E15C24D04814839AF6B09C628D72DE2"
+            "Folder" = "8:_CA10DE6190964D03BE2DBE4D4D74F59D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

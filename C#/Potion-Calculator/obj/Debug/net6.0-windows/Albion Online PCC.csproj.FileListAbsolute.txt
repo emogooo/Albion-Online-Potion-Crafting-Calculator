@@ -50,3 +50,29 @@ C:\Users\hp\Desktop\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Ca
 C:\Users\hp\Desktop\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.pdb
 C:\Users\hp\Desktop\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.genruntimeconfig.cache
 C:\Users\hp\Desktop\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\ref\Albion Online PCC.dll
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.exe
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.deps.json
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.runtimeconfig.json
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.dll
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Albion Online PCC.pdb
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.AssemblyReference.cache
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ApplicationForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.OtherSettingsForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductDailySalesAmountForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductFocusesForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductionMaterialPricesForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ProductPricesForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.Properties.Resources.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Potion_Calculator.ResultForm.resources
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.GenerateResource.cache
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.GeneratedMSBuildEditorConfig.editorconfig
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.AssemblyInfoInputs.cache
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.AssemblyInfo.cs
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.CoreCompileInputs.cache
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.csproj.CopyComplete
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.dll
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\refint\Albion Online PCC.dll
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.pdb
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\Albion Online PCC.genruntimeconfig.cache
+D:\E\Github\Albion-Online-Potion-Crafting-Calculator\C#\Potion-Calculator\obj\Debug\net6.0-windows\ref\Albion Online PCC.dll

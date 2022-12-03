@@ -59,10 +59,6 @@ def getProcessedPackets(rawPacket):
         else:
             rawData += rawPacket[i]
             i += 1
-    idx = rawData.find('+7')
-    if idx == -1:
-        return True, ""
-    rawData = rawData[idx + 2:]
     global packetCounter, startParameter
     if packetCounter == 1:
         idx = rawData.find('*x0b0eyys')
@@ -137,5 +133,4 @@ def main():
         print("0Hata oluştu.")
         return
     print(getProcessedString().replace(r"\r\n", r"\n"))
-
 main()

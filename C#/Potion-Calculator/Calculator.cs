@@ -2,10 +2,10 @@
 {
     public static class Calculator
     {
-        private static List<Product> products;
-        private static List<ProductionMaterial> productionMaterials;
-        private static List<Settings> settings;
-        private static List<Result> results;
+        private static List<Product>? products;
+        private static List<ProductionMaterial>? productionMaterials;
+        private static List<Settings>? settings;
+        private static List<Result>? results;
 
         private static void getItems()
         {
@@ -169,27 +169,30 @@
                 else
                 {
                     expectedQuantityToBeProduced = getExpectedQuantityToBeProducedLast(result.product, focus);
-                    int profit = getTotalProfit(result, expectedQuantityToBeProduced, 0);
-                    focus -= focus % result.product.focus;
-                    percentResult.Add(new Result
+                    if (expectedQuantityToBeProduced != 0)
                     {
-                        name = result.name,
-                        tier = result.tier,
-                        enchantment = result.enchantment,
-                        fullName = result.fullName,
-                        productionCost = result.productionCost,
-                        formattedProductionCost = result.formattedProductionCost,
-                        profitPerProduction = result.profitPerProduction,
-                        formattedProfitPerProduction = result.formattedProfitPerProduction,
-                        totalProfit = profit,
-                        formattedTotalProfit = getFormattedInteger(profit),
-                        productionAmount = expectedQuantityToBeProduced,
-                        formattedProductionAmount = getFormattedInteger(expectedQuantityToBeProduced),
-                        focusUsageAmount = focus,
-                        formattedFocusUsageAmount = getFormattedInteger(focus),
-                        product = result.product
-                    });
-                    break;
+                        int profit = getTotalProfit(result, expectedQuantityToBeProduced, 0);
+                        focus -= focus % result.product.focus;
+                        percentResult.Add(new Result
+                        {
+                            name = result.name,
+                            tier = result.tier,
+                            enchantment = result.enchantment,
+                            fullName = result.fullName,
+                            productionCost = result.productionCost,
+                            formattedProductionCost = result.formattedProductionCost,
+                            profitPerProduction = result.profitPerProduction,
+                            formattedProfitPerProduction = result.formattedProfitPerProduction,
+                            totalProfit = profit,
+                            formattedTotalProfit = getFormattedInteger(profit),
+                            productionAmount = expectedQuantityToBeProduced,
+                            formattedProductionAmount = getFormattedInteger(expectedQuantityToBeProduced),
+                            focusUsageAmount = focus,
+                            formattedFocusUsageAmount = getFormattedInteger(focus),
+                            product = result.product
+                        });
+                        break;
+                    }
                 }
             }
 
@@ -226,6 +229,7 @@
 
         public static List<string> getProductionList(Product product, int productionAmount)
         {
+            Dictionary<string, int> sortedProductionMaterialsDictionary = getSortedProductionMaterialsDictionary();
             List<string> productionList = new List<string>();
             if (!(Equals(product.name, "Potato Schnapps") || Equals(product.name, "Corn Hooch") || Equals(product.name, "Pumpkin Moonshine")))
             {
@@ -239,16 +243,22 @@
                     purchasePercentage = getPurchasePercentage(item, productionAmount);
                 }
                 int itemAmount = getItemAmount(purchasePercentage, item.amount, productionAmount);
-                productionList.Add(item.name + " - " + getFormattedInteger(itemAmount) + " adet");
+                sortedProductionMaterialsDictionary[item.name] += itemAmount;
             }
-
+            foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
+            {
+                if (item.Value != 0)
+                {
+                    productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                }
+            }
             return productionList;
         }
 
         public static List<string> getTotalProductionList(List<Result> results)
         {
             List<string> productionList = new List<string>();
-            Dictionary<string, int> productionListDictionary = new Dictionary<string, int>();
+            Dictionary<string, int> sortedProductionMaterialsDictionary = getSortedProductionMaterialsDictionary();
             foreach (Result result in results)
             {
                 if (!Equals(result.fullName, "Toplam"))
@@ -262,26 +272,23 @@
                             purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
                         } 
                         int itemAmount = getItemAmount(purchasePercentage, productionMaterial.amount, productionAmount);
-                        bool flag = true;
-                        foreach (KeyValuePair<string, int> item in productionListDictionary)
+                        foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
                         {
                             if (Equals(item.Key, productionMaterial.name))
                             {
-                                productionListDictionary[item.Key] += itemAmount;
-                                flag = false;
+                                sortedProductionMaterialsDictionary[item.Key] += itemAmount;
+                                break;
                             }
-                        }
-                        if (flag)
-                        {
-                            productionListDictionary.Add(productionMaterial.name, itemAmount);
                         }
                     }
                 }
             }
 
-            foreach (KeyValuePair<string, int> item in productionListDictionary)
+            foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
             {
-                productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                if(item.Value != 0) {
+                    productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                }
             }
             return productionList;
         }
@@ -490,6 +497,34 @@
             {
                 return name + " " + tier + "." + enc;
             }
+        }
+
+        private static Dictionary<string, int> getSortedProductionMaterialsDictionary()
+        {
+            Dictionary<string, int> sortedProductionMaterialsDictionary = new Dictionary<string, int>();
+            sortedProductionMaterialsDictionary.Add("Brightleaf Comfrey", 0);
+            sortedProductionMaterialsDictionary.Add("Crenellated Burdock", 0);
+            sortedProductionMaterialsDictionary.Add("Dragon Teasel", 0);
+            sortedProductionMaterialsDictionary.Add("Elusive Foxglove", 0);
+            sortedProductionMaterialsDictionary.Add("Firetouched Mullein", 0);
+            sortedProductionMaterialsDictionary.Add("Ghoul Yarrow", 0);
+            sortedProductionMaterialsDictionary.Add("Hen Eggs", 0);
+            sortedProductionMaterialsDictionary.Add("Goose Eggs", 0);
+            sortedProductionMaterialsDictionary.Add("Goat's Milk", 0);
+            sortedProductionMaterialsDictionary.Add("Sheep's Milk", 0);
+            sortedProductionMaterialsDictionary.Add("Cow's Milk", 0);
+            sortedProductionMaterialsDictionary.Add("Potato Schnapps", 0);
+            sortedProductionMaterialsDictionary.Add("Corn Hooch", 0);
+            sortedProductionMaterialsDictionary.Add("Pumpkin Moonshine", 0);
+            sortedProductionMaterialsDictionary.Add("Potatoes", 0);
+            sortedProductionMaterialsDictionary.Add("Bundle of Corn", 0);
+            sortedProductionMaterialsDictionary.Add("Pumpkin", 0);
+            sortedProductionMaterialsDictionary.Add("Adept's Arcane Essence", 0);
+            sortedProductionMaterialsDictionary.Add("Expert's Arcane Essence", 0);
+            sortedProductionMaterialsDictionary.Add("Master's Arcane Essence", 0);
+            sortedProductionMaterialsDictionary.Add("Grandmaster's Arcane Essence", 0);
+            sortedProductionMaterialsDictionary.Add("Elder's Arcane Essence", 0);
+            return sortedProductionMaterialsDictionary;
         }
 
     }

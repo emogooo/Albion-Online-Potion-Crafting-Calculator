@@ -5,14 +5,6 @@ import time
 import json
 import psutil
 
-startParameter = ''
-rawString = ''   
-packetCounter = 0 
-startTime = time.time()
-interruptTime = 3
-exitCheck = False 
-errorControl = False
-
 def findAdapter():
     addresses = psutil.net_if_addrs()
     stats = psutil.net_if_stats()
@@ -44,7 +36,6 @@ def getPackets(packet):
         rawString += processedPackets
         
 def stopChecker(x):
-    global exitCheck, interruptTime, startTime
     if exitCheck or time.time() - interruptTime > startTime:
         return True
     else:
@@ -59,29 +50,29 @@ def getProcessedPackets(rawPacket):
         else:
             rawData += rawPacket[i]
             i += 1
-    global packetCounter, startParameter
+    global startParameter
     if packetCounter == 1:
         idx = rawData.find('*x0b0eyys')
         startParameter = rawData[idx - 2:idx]
         rawData = rawData[idx + 9:]
     elif packetCounter == 3:
-        idx = rawData.rfind(startParameter + '08', 0, 20)
+        idx = rawData.rfind(startParameter + '08', 0, 50)
         if idx == -1:
-            idx = rawData.rfind(startParameter[1] + '08', 0, 20)
+            idx = rawData.rfind(startParameter[1] + '08', 0, 50)
             rawData = rawData[idx + 3:]
         else:
             rawData = rawData[idx + 4:]
     elif packetCounter == 4:
-        idx = rawData.rfind(startParameter + '8c', 0, 20)
+        idx = rawData.rfind(startParameter + '8c', 0, 50)
         if idx == -1:
-            idx = rawData.rfind(startParameter[1] + '8c', 0, 20)
+            idx = rawData.rfind(startParameter[1] + '8c', 0, 50)
             rawData = rawData[idx + 3:]
         else:
             rawData = rawData[idx + 4:]
     else:
-        idx = rawData.rfind(startParameter, 0, 20)
+        idx = rawData.rfind(startParameter, 0, 50)
         if idx == -1:
-            idx = rawData.rfind(startParameter[1], 0, 20)
+            idx = rawData.rfind(startParameter[1], 0, 50)
             rawData = rawData[idx + 1:]
         else:
             rawData = rawData[idx + 2:]
@@ -95,7 +86,6 @@ def getProcessedPackets(rawPacket):
 
 def getProcessedString():
     try:
-        global rawString
         semiProcessedData = ''
         idx = rawString.find('"}')
         semiProcessedData = rawString[:idx + 2] + "*#*"
@@ -119,18 +109,36 @@ def getProcessedString():
         for item in dataList: 
             x = json.loads(item)
             toSendString += x['ItemTypeId'] + "-" + str(x['UnitPriceSilver'])[:-4] + "|"
-        return "1" + toSendString[:-1]
+        return "2" + toSendString[:-1].replace(r"\r\n", r"\n")
     except:
-        return "0Hata oluştu."
+        return "0Error"
 
-def main():
+def listenPackets():
     adapter = findAdapter()
     if adapter == "Error":
-        print("0Adaptör bulunamadı.")
-        return
-    sniff(iface = adapter, prn=getPackets, filter = "src host 5.188.125", stop_filter= stopChecker)
+        return "1Adaptör bulunamadı."
+    sniff(iface = adapter, prn=getPackets, filter = "src host 5.188", stop_filter= stopChecker)
     if errorControl:
-        print("0Hata oluştu.")
-        return
-    print(getProcessedString().replace(r"\r\n", r"\n"))
+        return "0Error"
+    return getProcessedString()
+
+def main():
+    global startParameter, rawString, packetCounter, startTime, interruptTime, exitCheck, errorControl
+    for i in range(10):
+        startParameter = ''
+        rawString = ''   
+        packetCounter = 0 
+        startTime = time.time()
+        interruptTime = 3
+        exitCheck = False 
+        errorControl = False
+        result = listenPackets()
+        if result[0] == "1":
+            print("1Adaptör hatası, yazılımcı ile iletişime geçin. cakmalegolas@windowslive.com")
+            return
+        elif result[0] == "2":
+            print(result)
+            return
+    print("0Hata.")
+    
 main()

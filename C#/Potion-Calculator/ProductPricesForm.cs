@@ -88,19 +88,21 @@ namespace Potion_Calculator
 
             panelLoadingScreen.Visible = false;
             hotKeyListenerControl = true;
-            new System.Media.SoundPlayer(AppContext.BaseDirectory + @"media\beep.wav").Play();
 
             if (rawData[0] == '0')
             {
-                MessageBox.Show(rawData[1..], "Hata");
+                new System.Media.SoundPlayer(AppContext.BaseDirectory + @"media\blink.wav").Play();
             }
-
             else if (rawData[0] == '1')
             {
-
-                processAndWritePrices();
+                new System.Media.SoundPlayer(AppContext.BaseDirectory + @"media\blink.wav").Play();
+                MessageBox.Show(rawData[1..], "Adaptör Hatası");
             }
-            
+            else if (rawData[0] == '2')
+            {
+                processAndWritePrices();
+                new System.Media.SoundPlayer(AppContext.BaseDirectory + @"media\beep.wav").Play();
+            }    
         }
 
         private Task startProcess(ProcessStartInfo psi)

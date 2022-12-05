@@ -52,19 +52,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cakma\\.nuget\\packages\\": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
       "projectName": "Albion Online PCC",
-      "projectPath": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
-      "packagesPath": "C:\\Users\\cakma\\.nuget\\packages\\",
-      "outputPath": "D:\\E\\Github\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
+      "projectPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cakma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -114,7 +114,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

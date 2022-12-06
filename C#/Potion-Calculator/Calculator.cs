@@ -245,13 +245,36 @@
                 int itemAmount = getItemAmount(purchasePercentage, item.amount, productionAmount);
                 sortedProductionMaterialsDictionary[item.name] += itemAmount;
             }
+            int totalPrice = 0;
             foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
             {
                 if (item.Value != 0)
                 {
-                    productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                    if (item.Value != 0)
+                    {
+                        int price = 0;
+                        foreach (ProductionMaterial productionMaterial in productionMaterials)
+                        {
+                            if (Equals(item.Key, productionMaterial.name))
+                            {
+                                price = productionMaterial.price;
+                                break;
+                            }
+                        }
+                        if (price != 0)
+                        {
+                            price *= item.Value;
+                            productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet  |  " + getFormattedPrice(price) + " Silver");
+                            totalPrice += price;
+                        }
+                        else
+                        {
+                            productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                        }
+                    }
                 }
             }
+            productionList.Add("Liste maliyeti: " + getFormattedPrice(totalPrice) + " Silver");
             return productionList;
         }
 
@@ -265,12 +288,16 @@
                 {
                     foreach (ProductionMaterialForProducts productionMaterial in result.product.productionMaterials)
                     {
-                        int productionAmount = result.productionAmount / 5;
+                        int productionAmount = result.productionAmount;
+                        if (!(Equals(productionMaterial.name, "Potatoes") || Equals(productionMaterial.name, "Bundle of Corn") || Equals(productionMaterial.name, "Pumpkin")))
+                        {
+                            productionAmount /= 5;
+                        }
                         int purchasePercentage = 100;
                         if (productionAmount != 1)
                         {
                             purchasePercentage = getPurchasePercentage(productionMaterial, productionAmount);
-                        } 
+                        }
                         int itemAmount = getItemAmount(purchasePercentage, productionMaterial.amount, productionAmount);
                         foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
                         {
@@ -284,12 +311,33 @@
                 }
             }
 
+            int totalPrice = 0;
             foreach (KeyValuePair<string, int> item in sortedProductionMaterialsDictionary)
             {
-                if(item.Value != 0) {
-                    productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                if (item.Value != 0)
+                {
+                    int price = 0;
+                    foreach (ProductionMaterial productionMaterial in productionMaterials)
+                    {
+                        if (Equals(item.Key, productionMaterial.name))
+                        {
+                            price = productionMaterial.price;
+                            break;
+                        }
+                    }
+                    if (price != 0)
+                    {
+                        price *= item.Value;
+                        productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet  |  " + getFormattedPrice(price) + " Silver");
+                        totalPrice += price;
+                    }
+                    else
+                    {
+                        productionList.Add(item.Key + " - " + getFormattedInteger(item.Value) + " adet");
+                    }
                 }
             }
+            productionList.Add("Liste maliyeti: " + getFormattedPrice(totalPrice) + " Silver");
             return productionList;
         }
 
@@ -477,6 +525,23 @@
                 b = '-' + b;
             }
             return b;
+        }
+
+        private static string getFormattedPrice(int num)
+        {
+            if(num < 10000)
+            {
+                return num + "";
+            }
+            if(num > 9999 && num < 1000000)
+            {
+                return (num / 1000.0).ToString("n1").Replace(',', '.') + "k";
+            }
+            if(num > 999999)
+            {
+                return (num / 1000000.0).ToString("n2").Replace(',', '.') + "m";
+            }
+            return "Hata.";
         }
 
         private static string getFullName(string name, int tier, int enc)

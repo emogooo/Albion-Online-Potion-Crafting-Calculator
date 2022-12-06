@@ -81,10 +81,12 @@
                 listBox.Items.Add("   Listedeki tüm ürünleri üretebilmeniz için almanız gerekenler:");
                 listBox.Items.Add("");
                 List<string> itemList = Calculator.getTotalProductionList(resultList);
-                foreach (string item in itemList)
+                for (int i = 0; i < itemList.Count - 1; i++)
                 {
-                    listBox.Items.Add("    · " + item);
+                    listBox.Items.Add("     ·  " + itemList[i]);
                 }
+                listBox.Items.Add("");
+                listBox.Items.Add("      " + itemList[itemList.Count - 1]);
             }
             else if (e.RowIndex != -1)
             {
@@ -94,10 +96,12 @@
                     Convert.ToString( dataGridViewPercentageResult.Rows[e.RowIndex].Cells[0].Value) + " üretebilmeniz için almanız gerekenler:");
                 listBox.Items.Add("");
                 List<string> itemList = Calculator.getProductionList(resultList[e.RowIndex].product, resultList[e.RowIndex].productionAmount);
-                foreach (string item in itemList)
+                for (int i = 0; i < itemList.Count - 1; i++)
                 {
-                    listBox.Items.Add("    · " + item);
+                    listBox.Items.Add("     ·  " + itemList[i]);
                 }
+                listBox.Items.Add("");
+                listBox.Items.Add("      " + itemList[itemList.Count - 1]);
             }
         }
 

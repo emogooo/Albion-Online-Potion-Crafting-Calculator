@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\Potion-Calculator\\Albion Online PCC.csproj",
       "projectName": "Albion Online PCC",
-      "projectPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\Albion Online PCC.csproj",
+      "projectPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\Potion-Calculator\\Albion Online PCC.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\C#\\Potion-Calculator\\obj\\",
+      "outputPath": "C:\\Users\\hp\\OneDrive\\Masaüstü\\GitHub\\Albion-Online-Potion-Crafting-Calculator\\Potion-Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,4 +1,3 @@
-
 from scapy.all import *
 from scapy.all import raw
 import time
@@ -14,12 +13,18 @@ def findAdapter():
             continue
         elif intface in stats and getattr(stats[intface], "isup"):
             availableNetworks.append(intface)
-
-    if "Ethernet" in availableNetworks:
-        adapter = "Ethernet"
-    elif "Wi-Fi" in availableNetworks:
-        adapter = "Wi-Fi"
-    else:
+    
+    for adap in availableNetworks:
+        if "Ethernet" in adap:
+            adapter = adap
+            break
+        elif "Wi-Fi" in adap:
+            adapter = adap
+            break
+        else:
+            adapter = "NF"
+    
+    if adapter == "NF":
         return "Error"
     return adapter
 
@@ -140,5 +145,5 @@ def main():
             print(result)
             return
     print("0Hata.")
-    
+
 main()

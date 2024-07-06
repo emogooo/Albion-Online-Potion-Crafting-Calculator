@@ -1,6 +1,6 @@
 # Albion-Online-Potion-Crafting-Calculator
 
-Albion Online için yaptığım iksir üretim hesaplayıcısı. Gereken parametreleri girdiğimizde, o an için üretilebilir en kârlı iksir kombinasyonlarını hesaplayan uygulama.
+This project involves developing a potion production calculator application for Albion Online. The application allows players to input necessary parameters such as ingredient costs, market prices, and available resources. Based on these inputs, the calculator determines the most profitable potion combinations that can be produced at that moment. The tool is designed to help players maximize their profits by identifying the best potion recipes to craft, considering current market conditions and resource availability. This application simplifies the decision-making process, enabling players to optimize their crafting strategies and enhance their economic performance in the game.
 
 ![1](https://user-images.githubusercontent.com/58745898/184995571-43be9373-981a-44e7-8b6e-164ab8b408a2.png)
 
